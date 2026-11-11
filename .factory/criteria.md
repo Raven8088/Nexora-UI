@@ -1,15 +1,13 @@
-# Criterios de arquitectura del proyecto
+# Criterios de arquitectura · Nexora UI
 
-El arquitecto y el revisor juzgan cada decisión contra estos criterios. Escríbalos en términos comprobables.
-
-## Qué significa «limpio» aquí
-<<completar: por ejemplo, capas y dependencias permitidas, convenciones de nombres>>
-
-## Qué significa «eficiente» aquí
-<<completar: por ejemplo, tiempos de respuesta, consumo de memoria, volumen de datos esperado>>
-
-## Qué significa «escalable» aquí
-<<completar: por ejemplo, número de usuarios, de clientes o de registros que debe soportar>>
-
-## Restricciones que no se negocian
-<<completar: seguridad, despliegue, compatibilidad, principios del producto>>
+- Limpio: cada módulo tiene una sola responsabilidad; la lógica de negocio no vive en los componentes visuales; las dependencias entre capas van en un solo sentido y se comprueban con una herramienta automática.
+- Escalable: una función nueva se añade como módulo nuevo sin modificar los existentes; los módulos se cargan bajo demanda.
+- Eficiente: ninguna dependencia sin uso justificado; la carga inicial no incluye módulos que el usuario no ha abierto.
+- Profesional: tipado estricto, sin errores ni avisos del analizador de código, pruebas automáticas para la lógica y nombres consistentes.
+- Visual: paleta blanco y vino tinto, componentes de una sola librería, mismo espaciado y tipografía en todas las pantallas, textos legibles con buen contraste.
+- Seguridad: autenticación con Keycloak; ningún secreto ni token en el código.
+- Simple: no se añade ninguna capa, patrón o librería que la etapa en curso no necesite.
+- Estructura: organización por funcionalidades; cada módulo contiene sus propias capas de presentación, aplicación y datos, y ningún módulo importa de otro salvo de la carpeta compartida.
+- Componentes: los componentes de presentación solo reciben datos y emiten eventos; solo los componentes contenedor acceden al estado.
+- Estado: cada módulo expone una única fachada; las pantallas no llaman a la API ni manipulan el estado directamente.
+- Datos: el acceso a cada API de Nexora pasa por un repositorio con una interfaz definida, sustituible por una implementación simulada cuando la API no existe.

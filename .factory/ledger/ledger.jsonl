@@ -3,3 +3,5 @@
 {"fecha":"2026-11-11T04:24:13-05:00","evento":"etapa-nueva","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","titulo":"Arquitectura inicial de la interfaz","etapa":"E1","arquitectura":false}
 {"fecha":"2026-11-11T04:31:33-05:00","evento":"reincorporado","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","nombre":"Nexora-UI"}
 {"fecha":"2026-11-11T04:31:33-05:00","evento":"claude-instalado","equipo":"DESKTOP-AJU2OEK","usuario":"Raven"}
+{"fecha":"2026-11-11T04:43:02-05:00","evento":"config-cambiada","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","modo":"estricto","puertas":["arquitectura","propuesta","implementacion","entrega"],"reglasDesactivadas":[]}
+{"fecha":"2026-11-11T04:43:04-05:00","evento":"tablero","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","detalle":"tablero #8"}

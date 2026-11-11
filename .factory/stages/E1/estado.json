@@ -2,10 +2,12 @@
     "id":  "E1",
     "titulo":  "Arquitectura inicial de la interfaz",
     "creada":  "2026-11-11T04:24:13-05:00",
-    "arquitectura":  false,
+    "arquitectura":  true,
     "cerrada":  false,
     "fichaHash":  null,
     "puertas":  {
 
-                }
+                },
+    "issue":  2,
+    "tarjeta":  "PVTI_lAHOBJMU084BrHQtzhHxrSQ"
 }

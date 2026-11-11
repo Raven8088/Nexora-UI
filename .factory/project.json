@@ -1,5 +1,5 @@
 {
-  "nombre": "Nexora-UI",
+  "nombre": "Nexora UI",
   "modo": "estricto",
   "puertas": [
     "arquitectura",
@@ -21,11 +21,12 @@
   "pruebas": [],
   "documentacion": [],
   "github": {
-    "activo": false,
-    "base": "main"
+    "activo": true,
+    "base": "main",
+    "tablero": 8
   },
   "orquestador": {
-    "activo": false,
+    "activo": true,
     "maxRondas": 3,
     "minutosPorAgente": 90,
     "permisos": "auto",
