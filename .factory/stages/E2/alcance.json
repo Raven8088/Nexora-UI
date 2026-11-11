@@ -1,0 +1,20 @@
+{
+    "permitido":  [
+                      "package.json",
+                      "package-lock.json",
+                      "angular.json",
+                      "tsconfig*.json",
+                      "eslint.config.js",
+                      ".prettierrc*",
+                      ".prettierignore",
+                      "proxy.conf.json",
+                      "src/**",
+                      "tools/lint-fixtures/**",
+                      "docs/**",
+                      ".gitignore",
+                      ".editorconfig"
+                  ],
+    "excluido":  [
+
+                 ]
+}

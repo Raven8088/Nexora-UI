@@ -1,0 +1,73 @@
+# D-003 · Autenticación con Keycloak
+
+> Fuente canónica: `.factory/decisions/E1-D-003.md`. Este documento es su transcripción literal y no se edita a mano: solo cambia con una decisión nueva.
+
+**Etapa:** E1 · **Estado:** aprobada en la puerta «arquitectura» de E1, 2026-11-11, huella `88155078cf9020fc`
+
+## Contexto
+- **Criterio Seguridad:** autenticación con Keycloak; ningún secreto ni token en el código.
+- **Lo que hace el backend** (leído en `Nexora-Semantic` y `Nexora-Intelligence`):
+  - Valida tokens JWT de Keycloak, realm `nexora` (en desarrollo, `http://localhost:8180/realms/nexora`). Comprueba firma, emisor y audiencia.
+  - Lee estos *claims*:
+    - `roles`: permisos como `semantic:catalog:read`, `semantic:proposal:write` y `semantic:proposal:approve`.
+    - `tenant`: el UUID del inquilino.
+    - `principal_type`: `HUMAN`, `SERVICE` o `AI`.
+  - Aprobar o desactivar una definición exige un principal `HUMAN` distinto del autor.
+- **Las API del backend no configuran CORS.**
+- La interfaz es solo para administradores y no tiene pantallas públicas.
+
+## Decisión
+
+### Cliente y flujo
+- **Cliente:**
+  - Cliente **público** `nexora-ui` en el realm `nexora`, sin secreto.
+  - Flujo **Authorization Code con PKCE (`S256`)**.
+  - *Redirect URI* y *web origin* limitados al origen de la aplicación.
+- **Adaptador:** `keycloak-js` ([D-001](./01-tecnologia.md)), envuelto en `shared/auth`. Ningún otro archivo importa `keycloak-js`.
+- **Arranque** (`main.ts`):
+  1. Se crea la instancia con `url`, `realm` y `clientId` de `environment` ([D-004](./04-consumo-de-api.md)). Son datos públicos, no secretos.
+  2. Se llama a `init({ onLoad: 'login-required', pkceMethod: 'S256', checkLoginIframe: false })`.
+  3. **Solo si `init` termina con sesión** se ejecuta `bootstrapApplication`. Sin sesión no se crea ni un componente de la aplicación.
+- **Tokens:**
+  - Viven **solo en memoria**, dentro de la instancia de `keycloak-js`. Nunca se escriben en `localStorage`, `sessionStorage`, *cookies* propias ni registros.
+  - El *interceptor* de `shared/auth` llama a `updateToken(30)` antes de cada petición y añade `Authorization: Bearer <token>`.
+  - El *interceptor* actúa **solo** en peticiones cuya URL empiece por una de las rutas base de API declaradas en `environment.apis` ([D-004](./04-consumo-de-api.md)). Nunca envía el token a otros orígenes.
+- **Sesión expuesta a la aplicación:**
+  - `shared/auth/session.ts` expone un servicio `Session` con *signals* de solo lectura:
+    - `displayName`
+    - `tenantId`
+    - `permissions` (un `ReadonlySet<string>` con los `roles` del token)
+  - Expone también `hasPermission(p)` y `logout()`.
+  - Los módulos usan `Session` solo para **mostrar u ocultar** acciones. La autorización real la hace siempre el backend.
+- **Guard de ruta:** `shared/auth/permission.guard.ts` (función `CanMatchFn`).
+  - Cada ruta de módulo declara en `data.permission` el permiso mínimo para entrar (p. ej. `semantic:catalog:read`).
+  - Si el usuario no lo tiene, se le redirige a `/sin-permiso`.
+- **Cierre de sesión:** el menú de usuario del shell muestra el nombre y «Cerrar sesión». Llama a `keycloak.logout({ redirectUri: origen })`, que vuelve a pedir el inicio de sesión.
+
+### Qué ve cada usuario
+| Situación | Qué ve |
+|---|---|
+| **Sin sesión** | Nunca ve la aplicación. El navegador va directamente a la página de inicio de sesión de Keycloak (realm `nexora`). Tras autenticarse vuelve a la URL que pidió. |
+| Sesión caducada mientras trabaja | `updateToken` intenta renovarla. Si Keycloak la rechaza, se llama a `keycloak.login()` con la URL actual, y al volver el usuario continúa en la misma pantalla. Lo que no estuviera guardado se pierde, y los formularios no guardan borradores locales. |
+| Keycloak no responde al arrancar | `main.ts` no arranca Angular y pinta una página estática mínima, escrita en `index.html` y oculta por defecto: «No se puede conectar con el servicio de acceso de Nexora. Inténtalo de nuevo en unos minutos.» con el botón «Reintentar», que recarga la página. |
+| Sesión válida pero sin el permiso de un módulo | Ese módulo no aparece en el menú. Si entra por URL, ve `/sin-permiso`: «No tienes permiso para ver esta sección. Pide acceso a un administrador de Nexora.» |
+| Sesión válida sin ningún permiso de Nexora UI | Ve `/sin-permiso` al entrar, con «Cerrar sesión». |
+| El backend responde 401 a una petición | El *interceptor* fuerza `keycloak.login()`, como en la sesión caducada. |
+| El backend responde 403 | La pantalla muestra el error en lenguaje de negocio ([D-004](./04-consumo-de-api.md)): «No tienes permiso para hacer esta operación.» No redirige. |
+
+## Alternativas descartadas
+- **`onLoad: 'check-sso'` con una página pública de bienvenida.** Añade una pantalla y una ruta pública que esta versión no necesita (**Simple**). Además, la comprobación silenciosa con *iframe* falla en navegadores que bloquean *cookies* de terceros. Una aplicación solo administrativa no tiene nada que enseñar sin sesión.
+- **`keycloak-angular`.** Aporta *guard* e *interceptor* ya hechos, pero es una dependencia más, que además tiene que seguir cada *major* de Angular. Lo que cubre son tres piezas pequeñas y probables (inicialización, *guard*, *interceptor*), así que se descarta por **Eficiente** (ninguna dependencia sin uso justificado).
+- **`angular-oauth2-oidc` (OIDC genérico).** Sirve para cualquier proveedor, pero el criterio fija Keycloak y el adaptador oficial cubre exactamente ese caso. La generalidad no aporta nada aquí (**Simple**).
+- **Patrón BFF (un servidor intermedio que guarda los tokens en *cookie* de sesión).** Es más robusto frente a XSS, pero exige un servidor propio. El despliegue y los servidores están fuera de alcance, y esta versión no lo necesita. Se puede reconsiderar si Nexora UI llega a usuarios finales.
+- **Guardar el token en `localStorage` para sobrevivir a recargas.** Lo expone a cualquier script inyectado. Incumple **Seguridad**. Al recargar, Keycloak restablece la sesión con su propia *cookie* sin pedir credenciales.
+
+## Consecuencias
+- **Requisitos fuera del repositorio:** el realm `nexora` necesita el cliente público `nexora-ui` y que sus tokens de usuario lleven los *claims* `roles`, `tenant` y `principal_type = HUMAN`, con la audiencia que espera cada API (`nexora-semantic`, …). Es configuración de Keycloak y no se hace en este proyecto (ver Dudas).
+- Un usuario trabaja con **un solo inquilino por sesión**, el del *claim* `tenant`. Esta versión no tiene selector de inquilino.
+- Como las API no tienen CORS, las peticiones salen al **mismo origen** de la aplicación ([D-004](./04-consumo-de-api.md)). El *interceptor* filtra por ruta base, no por dominio.
+- No cambia ninguna decisión vigente.
+
+## Dudas para el responsable
+1. **Configuración de Keycloak.** ¿Quién da de alta el cliente `nexora-ui` y los *mappers* `tenant`, `principal_type` y `roles` en el realm `nexora`? Recomiendo que sea una tarea del backend, previa a la etapa de autenticación (E4 en [D-006](./06-plan-de-etapas.md)). Mientras tanto, E4 se puede probar con un realm local de desarrollo.
+2. **Administradores de plataforma.** ¿Hay administradores de plataforma (`PLATFORM_ADMIN`, sin `tenant`) que deban usar esta interfaz? Recomiendo que no en esta versión: un inquilino por sesión.

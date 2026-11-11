@@ -3,11 +3,35 @@
     "titulo":  "Arquitectura inicial de la interfaz",
     "creada":  "2026-11-11T04:24:13-05:00",
     "arquitectura":  true,
-    "cerrada":  false,
-    "fichaHash":  null,
+    "cerrada":  true,
+    "fichaHash":  "8aa969494dcbaaa0226a80951328aa21fd9e28eea704d6176e6c52f2797fae18",
     "puertas":  {
-
+                    "arquitectura":  {
+                                         "estado":  "APROBADA",
+                                         "fecha":  "2026-11-11T05:08:23-05:00",
+                                         "huella":  "88155078cf9020fc",
+                                         "aprobadaPor":  "Raven"
+                                     },
+                    "propuesta":  {
+                                      "estado":  "APROBADA",
+                                      "fecha":  "2026-11-11T05:28:06-05:00",
+                                      "huella":  "ba66710b37aaf759",
+                                      "aprobadaPor":  "Raven"
+                                  },
+                    "implementacion":  {
+                                           "estado":  "APROBADA",
+                                           "fecha":  "2026-11-11T05:41:41-05:00",
+                                           "huella":  ""
+                                       },
+                    "entrega":  {
+                                    "estado":  "APROBADA",
+                                    "fecha":  "2026-11-11T12:05:24-05:00",
+                                    "huella":  "bbd594162a622bd2",
+                                    "aprobadaPor":  "Raven"
+                                }
                 },
     "issue":  2,
-    "tarjeta":  "PVTI_lAHOBJMU084BrHQtzhHxrSQ"
+    "tarjeta":  "PVTI_lAHOBJMU084BrHQtzhHxrSQ",
+    "rama":  "etapa/E1-arquitectura-inicial-de-la-interfaz",
+    "pr":  15
 }

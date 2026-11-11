@@ -1,0 +1,19 @@
+{
+    "hecho":  {
+                  "arquitectura":  true,
+                  "propuesta":  true,
+                  "implementacion":  true,
+                  "entrega":  true
+              },
+    "rondas":  {
+                   "propuesta":  0,
+                   "implementacion":  0,
+                   "entrega":  0
+               },
+    "bloqueo":  null,
+    "costo":  7.2164,
+    "fallos":  0,
+    "integrada":  false,
+    "evaluar":  false,
+    "probar":  false
+}

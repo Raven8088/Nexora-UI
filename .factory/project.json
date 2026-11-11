@@ -18,7 +18,13 @@
     "**/.idea/**",
     "**/.vscode/**"
   ],
-  "pruebas": [],
+  "pruebas": [
+    {
+      "nombre": "documentacion",
+      "dir": ".",
+      "comando": "if exist docs\\arquitectura\\README.md (exit 0) else (exit 1)"
+    }
+  ],
   "documentacion": [],
   "github": {
     "activo": true,

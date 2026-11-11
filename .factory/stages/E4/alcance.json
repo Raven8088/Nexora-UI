@@ -1,0 +1,16 @@
+{
+    "permitido":  [
+                      "src/main.ts",
+                      "src/index.html",
+                      "src/app/app.config.ts",
+                      "src/app/shared/auth/**",
+                      "src/app/shell/**",
+                      "src/environments/**",
+                      "package.json",
+                      "package-lock.json",
+                      "docs/**"
+                  ],
+    "excluido":  [
+
+                 ]
+}

@@ -1,0 +1,17 @@
+{
+    "id":  "E6",
+    "titulo":  "Diccionario semántico: consulta de tarjetas",
+    "creada":  "2026-11-11T05:30:28-05:00",
+    "arquitectura":  false,
+    "cerrada":  false,
+    "fichaHash":  null,
+    "dependeDe":  [
+                      "E4",
+                      "E5"
+                  ],
+    "puertas":  {
+
+                },
+    "issue":  7,
+    "tarjeta":  "PVTI_lAHOBJMU084BrHQtzhHyZDI"
+}

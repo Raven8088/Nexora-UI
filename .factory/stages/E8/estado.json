@@ -1,0 +1,17 @@
+{
+    "id":  "E8",
+    "titulo":  "Reglas de negocio (con datos simulados)",
+    "creada":  "2026-11-11T05:30:41-05:00",
+    "arquitectura":  false,
+    "cerrada":  false,
+    "fichaHash":  null,
+    "dependeDe":  [
+                      "E4",
+                      "E5"
+                  ],
+    "puertas":  {
+
+                },
+    "issue":  9,
+    "tarjeta":  "PVTI_lAHOBJMU084BrHQtzhHyZRw"
+}

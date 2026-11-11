@@ -1,0 +1,180 @@
+{"fecha":"2026-11-11T04:54:24-05:00","evento":"accion","agente":"arquitecto","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\orquestador\\encargo.md"}
+{"fecha":"2026-11-11T04:54:26-05:00","evento":"accion","agente":"arquitecto","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\ficha.md"}
+{"fecha":"2026-11-11T04:54:26-05:00","evento":"accion","agente":"arquitecto","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\alcance.json"}
+{"fecha":"2026-11-11T04:54:29-05:00","evento":"accion","agente":"arquitecto","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\criteria.md"}
+{"fecha":"2026-11-11T04:54:29-05:00","evento":"accion","agente":"arquitecto","herramienta":"Glob","detalle":".factory/**/*"}
+{"fecha":"2026-11-11T04:54:31-05:00","evento":"accion","agente":"arquitecto","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\project.json"}
+{"fecha":"2026-11-11T04:54:32-05:00","evento":"accion","agente":"arquitecto","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\rules.json"}
+{"fecha":"2026-11-11T04:54:32-05:00","evento":"accion","agente":"arquitecto","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\veredictos\\arquitectura.md"}
+{"fecha":"2026-11-11T04:54:33-05:00","evento":"accion","agente":"arquitecto","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\estado.json"}
+{"fecha":"2026-11-11T04:54:33-05:00","evento":"accion","agente":"arquitecto","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\orquestador\\registro\\001-decision.json.err"}
+{"fecha":"2026-11-11T04:54:34-05:00","evento":"accion","agente":"arquitecto","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\propuesta.md"}
+{"fecha":"2026-11-11T04:54:37-05:00","evento":"accion","agente":"arquitecto","herramienta":"Glob","detalle":"*"}
+{"fecha":"2026-11-11T04:54:38-05:00","evento":"accion","agente":"arquitecto","herramienta":"Glob","detalle":"docs/**/*"}
+{"fecha":"2026-11-11T04:54:52-05:00","evento":"accion","agente":"arquitecto","herramienta":"Glob","detalle":"D:\\desarrollo"}
+{"fecha":"2026-11-11T04:54:56-05:00","evento":"accion","agente":"arquitecto","herramienta":"Grep","detalle":"D:\\desarrollo"}
+{"fecha":"2026-11-11T04:55:02-05:00","evento":"accion","agente":"arquitecto","herramienta":"Grep","detalle":"D:\\desarrollo\\java\\Nexora AI\\Documentacion\\Maestros\\README_MAESTRO.md"}
+{"fecha":"2026-11-11T04:55:06-05:00","evento":"accion","agente":"arquitecto","herramienta":"Glob","detalle":"D:\\desarrollo\\java\\Nexora AI"}
+{"fecha":"2026-11-11T04:55:09-05:00","evento":"accion","agente":"arquitecto","herramienta":"Grep","detalle":"D:\\desarrollo\\java\\Nexora AI"}
+{"fecha":"2026-11-11T04:55:13-05:00","evento":"accion","agente":"arquitecto","herramienta":"Grep","detalle":"D:\\desarrollo\\java\\Nexora AI\\Nexora-Semantic"}
+{"fecha":"2026-11-11T04:55:14-05:00","evento":"accion","agente":"arquitecto","herramienta":"Grep","detalle":"D:\\desarrollo\\java\\Nexora AI\\Nexora-Intelligence"}
+{"fecha":"2026-11-11T04:55:18-05:00","evento":"accion","agente":"arquitecto","herramienta":"Grep","detalle":"D:\\desarrollo\\java\\Nexora AI\\Nexora-Intelligence\\src\\main"}
+{"fecha":"2026-11-11T04:55:20-05:00","evento":"accion","agente":"arquitecto","herramienta":"Grep","detalle":"D:\\desarrollo\\java\\Nexora AI\\Nexora-Semantic\\src\\main"}
+{"fecha":"2026-11-11T04:55:21-05:00","evento":"accion","agente":"arquitecto","herramienta":"Glob","detalle":"D:\\desarrollo\\java\\Nexora AI"}
+{"fecha":"2026-11-11T04:55:24-05:00","evento":"accion","agente":"arquitecto","herramienta":"Read","detalle":"D:\\desarrollo\\java\\Nexora AI\\Nexora-Intelligence\\src\\main\\resources\\application.yml"}
+{"fecha":"2026-11-11T04:55:25-05:00","evento":"accion","agente":"arquitecto","herramienta":"Grep","detalle":"D:\\desarrollo\\java\\Nexora AI\\Documentacion\\Maestros\\anexos\\A7_Diccionario_semantico.md"}
+{"fecha":"2026-11-11T04:55:30-05:00","evento":"accion","agente":"arquitecto","herramienta":"Grep","detalle":"D:\\desarrollo\\java\\Nexora AI\\Nexora-Semantic\\src\\main"}
+{"fecha":"2026-11-11T04:55:32-05:00","evento":"accion","agente":"arquitecto","herramienta":"Read","detalle":"D:\\desarrollo\\java\\Nexora AI\\Nexora-Semantic\\src\\main\\resources\\application.yml"}
+{"fecha":"2026-11-11T04:55:34-05:00","evento":"accion","agente":"arquitecto","herramienta":"Grep","detalle":"D:\\desarrollo\\java\\Nexora AI"}
+{"fecha":"2026-11-11T04:55:35-05:00","evento":"accion","agente":"arquitecto","herramienta":"Grep","detalle":"D:\\desarrollo\\java\\Nexora AI\\Nexora-Semantic\\src\\main\\java\\com\\nexora\\semantic\\domain\\catalog"}
+{"fecha":"2026-11-11T04:55:42-05:00","evento":"accion","agente":"arquitecto","herramienta":"Grep","detalle":"D:\\desarrollo\\java\\Nexora AI\\Nexora-Semantic\\src\\main\\java"}
+{"fecha":"2026-11-11T04:55:42-05:00","evento":"accion","agente":"arquitecto","herramienta":"Grep","detalle":"D:\\desarrollo\\java\\Nexora AI\\Nexora-Semantic\\src\\main\\java\\com\\nexora\\semantic\\api"}
+{"fecha":"2026-11-11T04:55:42-05:00","evento":"accion","agente":"arquitecto","herramienta":"Read","detalle":"D:\\desarrollo\\java\\Nexora AI\\Nexora-Intelligence\\src\\main\\java\\com\\nexora\\intelligence\\infrastructure\\web\\QuestionController.java"}
+{"fecha":"2026-11-11T04:57:25-05:00","evento":"accion","agente":"arquitecto","herramienta":"Read","detalle":"D:\\desarrollo\\java\\Nexora AI\\Nexora-Semantic\\src\\main\\java\\com\\nexora\\semantic\\api\\catalog\\DefinitionController.java"}
+{"fecha":"2026-11-11T04:57:26-05:00","evento":"accion","agente":"arquitecto","herramienta":"Read","detalle":"D:\\desarrollo\\java\\Nexora AI\\Nexora-Semantic\\src\\main\\java\\com\\nexora\\semantic\\api\\source\\DataSourceController.java"}
+{"fecha":"2026-11-11T04:58:15-05:00","evento":"accion","agente":"arquitecto","herramienta":"Write","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\decisiones\\D-001.md"}
+{"fecha":"2026-11-11T04:58:47-05:00","evento":"accion","agente":"arquitecto","herramienta":"Write","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\decisiones\\D-002.md"}
+{"fecha":"2026-11-11T04:59:18-05:00","evento":"accion","agente":"arquitecto","herramienta":"Write","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\decisiones\\D-003.md"}
+{"fecha":"2026-11-11T04:59:57-05:00","evento":"accion","agente":"arquitecto","herramienta":"Write","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\decisiones\\D-004.md"}
+{"fecha":"2026-11-11T05:00:31-05:00","evento":"accion","agente":"arquitecto","herramienta":"Write","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\decisiones\\D-005.md"}
+{"fecha":"2026-11-11T05:00:44-05:00","evento":"accion","agente":"arquitecto","herramienta":"Edit","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\decisiones\\D-005.md"}
+{"fecha":"2026-11-11T05:00:45-05:00","evento":"accion","agente":"arquitecto","herramienta":"Edit","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\decisiones\\D-005.md"}
+{"fecha":"2026-11-11T05:00:46-05:00","evento":"accion","agente":"arquitecto","herramienta":"Edit","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\decisiones\\D-005.md"}
+{"fecha":"2026-11-11T05:01:43-05:00","evento":"accion","agente":"arquitecto","herramienta":"Write","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\decisiones\\D-006.md"}
+{"fecha":"2026-11-11T05:01:47-05:00","evento":"accion","agente":"arquitecto","herramienta":"Edit","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\decisiones\\D-006.md"}
+{"fecha":"2026-11-11T05:02:30-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\orquestador\\encargo.md"}
+{"fecha":"2026-11-11T05:02:33-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\veredictos\\arquitectura-solicitud.md"}
+{"fecha":"2026-11-11T05:02:33-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\ficha.md"}
+{"fecha":"2026-11-11T05:02:33-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\alcance.json"}
+{"fecha":"2026-11-11T05:02:38-05:00","evento":"accion","agente":"revisor","herramienta":"Glob","detalle":".factory/stages/E1/**/*"}
+{"fecha":"2026-11-11T05:02:38-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\criteria.md"}
+{"fecha":"2026-11-11T05:02:38-05:00","evento":"accion","agente":"revisor","herramienta":"Glob","detalle":".factory/decisions/**/*"}
+{"fecha":"2026-11-11T05:02:40-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\decisiones\\D-001.md"}
+{"fecha":"2026-11-11T05:02:41-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\decisiones\\D-002.md"}
+{"fecha":"2026-11-11T05:02:41-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\decisiones\\D-003.md"}
+{"fecha":"2026-11-11T05:02:42-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\decisiones\\D-004.md"}
+{"fecha":"2026-11-11T05:02:42-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\decisiones\\D-005.md"}
+{"fecha":"2026-11-11T05:02:43-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\decisiones\\D-006.md"}
+{"fecha":"2026-11-11T05:02:46-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\veredictos\\arquitectura.md"}
+{"fecha":"2026-11-11T05:02:46-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\estado.json"}
+{"fecha":"2026-11-11T05:04:04-05:00","evento":"accion","agente":"revisor","herramienta":"Write","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\veredictos\\arquitectura-revisor.md"}
+{"fecha":"2026-11-11T05:08:52-05:00","evento":"accion","agente":"productor","herramienta":"Bash","detalle":"cat .factory/stages/E1/orquestador/encargo.md \u0026\u0026 ls -R .factory/stages/E1 \u0026\u0026 cat .factory/stages/E1/estado.json"}
+{"fecha":"2026-11-11T05:08:55-05:00","evento":"accion","agente":"productor","herramienta":"Bash","detalle":"cat .factory/stages/E1/ficha.md .factory/stages/E1/alcance.json .factory/stages/E1/propuesta.md; for f in .factory/stages/E1/veredictos/*; do echo \"=== $f\"; cat…"}
+{"fecha":"2026-11-11T05:08:59-05:00","evento":"accion","agente":"productor","herramienta":"Bash","detalle":"cat .factory/rules.json; cat .factory/project.json; ls -la . docs .factory .factory/decisions 2\u003e\u00261; git status; git log --oneline | head; wc -l .factory/stages/…"}
+{"fecha":"2026-11-11T05:09:04-05:00","evento":"accion","agente":"productor","herramienta":"Bash","detalle":"cat .factory/criteria.md; for f in .factory/stages/E1/decisiones/*; do echo \"=== $f\"; cat -n \"$f\"; done; for f in .factory/decisions/*; do diff -q $f .factory/s…"}
+{"fecha":"2026-11-11T05:09:07-05:00","evento":"accion","agente":"productor","herramienta":"Read","detalle":"C:\\Users\\Raven\\.claude\\projects\\D--desarrollo-Front-end-nexora-ui\\b35bbfe1-41b2-462c-aa94-9549dc26075c\\tool-results\\bepzvx6za.txt"}
+{"fecha":"2026-11-11T05:09:12-05:00","evento":"accion","agente":"productor","herramienta":"Bash","detalle":"ls .factory/checks; grep -rn -i \"propuesta\\|U-PRO\" .factory/checks | head -40; ls .claude .claude/agents"}
+{"fecha":"2026-11-11T05:09:16-05:00","evento":"accion","agente":"productor","herramienta":"Bash","detalle":"cat .claude/settings.json | head -40; cat .factory/stages/E1/orquestador/control.json; f=$(find /d/desarrollo -maxdepth 4 -name factory.ps1 2\u003e/dev/null | head -…"}
+{"fecha":"2026-11-11T05:09:19-05:00","evento":"accion","agente":"productor","herramienta":"Bash","detalle":"cd /d/desarrollo/software-factory \u0026\u0026 grep -rn \"U-PRO\" --include=*.ps1 --include=*.json . | head -20"}
+{"fecha":"2026-11-11T05:10:23-05:00","evento":"accion","agente":"productor","herramienta":"Write","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\propuesta.md"}
+{"fecha":"2026-11-11T05:10:50-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\orquestador\\encargo.md"}
+{"fecha":"2026-11-11T05:10:52-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\veredictos\\propuesta-solicitud.md"}
+{"fecha":"2026-11-11T05:10:53-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\ficha.md"}
+{"fecha":"2026-11-11T05:10:53-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\alcance.json"}
+{"fecha":"2026-11-11T05:10:57-05:00","evento":"accion","agente":"revisor","herramienta":"Glob","detalle":".factory/stages/E1/**/*"}
+{"fecha":"2026-11-11T05:10:58-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\criteria.md"}
+{"fecha":"2026-11-11T05:11:00-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\propuesta.md"}
+{"fecha":"2026-11-11T05:11:00-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\estado.json"}
+{"fecha":"2026-11-11T05:11:01-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\veredictos\\propuesta.md"}
+{"fecha":"2026-11-11T05:11:04-05:00","evento":"accion","agente":"revisor","herramienta":"Glob","detalle":".factory/decisions/*"}
+{"fecha":"2026-11-11T05:11:05-05:00","evento":"accion","agente":"revisor","herramienta":"Glob","detalle":"docs/**/*"}
+{"fecha":"2026-11-11T05:11:05-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\veredictos\\arquitectura-revisor.md"}
+{"fecha":"2026-11-11T05:11:05-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\veredictos\\arquitectura.md"}
+{"fecha":"2026-11-11T05:11:11-05:00","evento":"accion","agente":"revisor","herramienta":"Grep","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\decisions"}
+{"fecha":"2026-11-11T05:11:28-05:00","evento":"accion","agente":"revisor","herramienta":"Grep","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory"}
+{"fecha":"2026-11-11T05:11:44-05:00","evento":"accion","agente":"revisor","herramienta":"Write","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\veredictos\\propuesta-revisor.md"}
+{"fecha":"2026-11-11T05:18:09-05:00","evento":"accion","agente":"productor","herramienta":"Bash","detalle":"cat .factory/stages/E1/orquestador/encargo.md; ls -R .factory/stages/E1; cat .factory/stages/E1/estado.json"}
+{"fecha":"2026-11-11T05:18:12-05:00","evento":"accion","agente":"productor","herramienta":"Bash","detalle":"cd /d/desarrollo/Front-end/nexora-ui/.factory/stages/E1 \u0026\u0026 cat orquestador/respuestas.md; echo ======; cat veredictos/propuesta.md; echo ======; cat veredictos/…"}
+{"fecha":"2026-11-11T05:18:19-05:00","evento":"accion","agente":"productor","herramienta":"Bash","detalle":"cd /d/desarrollo/Front-end/nexora-ui \u0026\u0026 cat .factory/stages/E1/ficha.md .factory/stages/E1/alcance.json; cat .factory/stages/E1/orquestador/control.json .factor…"}
+{"fecha":"2026-11-11T05:18:23-05:00","evento":"accion","agente":"productor","herramienta":"Bash","detalle":"cd /d/desarrollo/Front-end/nexora-ui/.factory \u0026\u0026 cat stages/E1/veredictos/arquitectura-revisor.md; cat rules.json | head -60; grep -n -A12 -i \"^## Dudas\" stages…"}
+{"fecha":"2026-11-11T05:18:54-05:00","evento":"accion","agente":"productor","herramienta":"Bash","detalle":"sed -n 17,36p stages/E1/decisiones/D-005.md; cat \u003e /tmp/c.js \u003c\u003c\u0027EOF\u0027 const lin=c=\u003e{c/=255;return c\u003c=0.04045?c/12.92:((c+0.055)/1.055)**2.4}; const L=h=\u003e{const n…"}
+{"fecha":"2026-11-11T05:18:58-05:00","evento":"accion","agente":"productor","herramienta":"Bash","detalle":"node /tmp/c.js \"#FFFFFF/#7B1E34\" \"#1F1A1C/#FFFFFF\" \"#5C5357/#FFFFFF\" \"#1E6B3A/#FFFFFF\" \"#8A5A00/#FFFFFF\" \"#B3261E/#FFFFFF\" \"#1F4E79/#FFFFFF\""}
+{"fecha":"2026-11-11T05:20:08-05:00","evento":"accion","agente":"productor","herramienta":"Write","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\propuesta.md"}
+{"fecha":"2026-11-11T05:20:47-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\orquestador\\encargo.md"}
+{"fecha":"2026-11-11T05:20:49-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\orquestador\\respuestas.md"}
+{"fecha":"2026-11-11T05:20:50-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\veredictos\\propuesta-solicitud.md"}
+{"fecha":"2026-11-11T05:20:50-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\ficha.md"}
+{"fecha":"2026-11-11T05:20:51-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\alcance.json"}
+{"fecha":"2026-11-11T05:20:57-05:00","evento":"accion","agente":"revisor","herramienta":"Glob","detalle":".factory/stages/E1/**/*"}
+{"fecha":"2026-11-11T05:20:57-05:00","evento":"accion","agente":"revisor","herramienta":"Glob","detalle":".factory/*"}
+{"fecha":"2026-11-11T05:20:59-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\propuesta.md"}
+{"fecha":"2026-11-11T05:21:00-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\veredictos\\propuesta-revisor.md"}
+{"fecha":"2026-11-11T05:21:00-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\estado.json"}
+{"fecha":"2026-11-11T05:21:01-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\veredictos\\propuesta.md"}
+{"fecha":"2026-11-11T05:21:03-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\veredictos\\arquitectura-revisor.md"}
+{"fecha":"2026-11-11T05:21:04-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\criteria.md"}
+{"fecha":"2026-11-11T05:21:04-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\project.json"}
+{"fecha":"2026-11-11T05:21:05-05:00","evento":"accion","agente":"revisor","herramienta":"Glob","detalle":"{.factory/decisions/**,.factory/plan/**,docs/**,.factory/stages/*/estado.json}"}
+{"fecha":"2026-11-11T05:21:08-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\decisions\\E1-D-005.md"}
+{"fecha":"2026-11-11T05:21:09-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\decisions\\E1-D-006.md"}
+{"fecha":"2026-11-11T05:21:09-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\decisions\\E1-D-001.md"}
+{"fecha":"2026-11-11T05:21:38-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\decisions\\E1-D-002.md"}
+{"fecha":"2026-11-11T05:21:38-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\decisions\\E1-D-003.md"}
+{"fecha":"2026-11-11T05:21:38-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\decisions\\E1-D-004.md"}
+{"fecha":"2026-11-11T05:21:58-05:00","evento":"accion","agente":"revisor","herramienta":"Glob","detalle":"{.gitignore,.factory/rules.json,.factory/stages/E1/orquestador/control.json,.factory/stages/E1/orquestador/en-curso.json}"}
+{"fecha":"2026-11-11T05:22:00-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\orquestador\\control.json"}
+{"fecha":"2026-11-11T05:22:01-05:00","evento":"accion","agente":"revisor","herramienta":"Grep","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\rules.json"}
+{"fecha":"2026-11-11T05:22:05-05:00","evento":"accion","agente":"revisor","herramienta":"Grep","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\rules.json"}
+{"fecha":"2026-11-11T05:22:47-05:00","evento":"accion","agente":"revisor","herramienta":"Write","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\veredictos\\propuesta-revisor.md"}
+{"fecha":"2026-11-11T05:28:28-05:00","evento":"accion","agente":"productor","herramienta":"Bash","detalle":"cat .factory/stages/E1/orquestador/encargo.md; ls -R .factory/stages/E1; cat .factory/stages/E1/estado.json"}
+{"fecha":"2026-11-11T05:28:31-05:00","evento":"accion","agente":"productor","herramienta":"Bash","detalle":"cat .factory/stages/E1/ficha.md .factory/stages/E1/alcance.json .factory/stages/E1/orquestador/respuestas.md .factory/stages/E1/propuesta.md; git status; git br…"}
+{"fecha":"2026-11-11T05:28:35-05:00","evento":"accion","agente":"productor","herramienta":"Bash","detalle":"ls -la .factory/decisions .factory/stages .factory/plan 2\u003e\u00261; cat .factory/stages/E1/veredictos/propuesta.md .factory/stages/E1/veredictos/propuesta-revisor.md …"}
+{"fecha":"2026-11-11T05:28:45-05:00","evento":"accion","agente":"productor","herramienta":"Bash","detalle":"cat .factory/stages/E1/orquestador/control.json .factory/stages/E1/orquestador/en-curso.json; grep -rl \"E1b\" .factory --include=*.json* | head"}
+{"fecha":"2026-11-11T05:28:59-05:00","evento":"accion","agente":"productor","herramienta":"Write","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\orquestador\\dudas.md"}
+{"fecha":"2026-11-11T05:39:08-05:00","evento":"accion","agente":"productor","herramienta":"Bash","detalle":"cd /d/desarrollo/Front-end/nexora-ui; cat .factory/stages/E1/orquestador/encargo.md; ls -R .factory/stages/E1; cat .factory/stages/E1/estado.json"}
+{"fecha":"2026-11-11T05:39:11-05:00","evento":"accion","agente":"productor","herramienta":"Bash","detalle":"cd /d/desarrollo/Front-end/nexora-ui; cat .factory/stages/E1/ficha.md .factory/stages/E1/alcance.json .factory/stages/E1/orquestador/respuestas.md .factory/stag…"}
+{"fecha":"2026-11-11T05:39:16-05:00","evento":"accion","agente":"productor","herramienta":"Bash","detalle":"cd /d/desarrollo/Front-end/nexora-ui; ls -la docs 2\u003e\u00261; ls .factory/decisions; ls .factory/stages/*/; cat .factory/criteria.md; cat .factory/rules.json; tail -c…"}
+{"fecha":"2026-11-11T05:39:20-05:00","evento":"accion","agente":"productor","herramienta":"Bash","detalle":"cd /d/desarrollo/Front-end/nexora-ui; for f in .factory/decisions/*.md; do echo \"=== $f\"; cat \"$f\"; done; diff -r .factory/decisions .factory/stages/E1/decision…"}
+{"fecha":"2026-11-11T05:39:23-05:00","evento":"accion","agente":"productor","herramienta":"Bash","detalle":"cd /d/desarrollo/Front-end/nexora-ui; for i in 1 2 3 4 5 6; do cmp .factory/decisions/E1-D-00$i.md .factory/stages/E1/decisiones/D-00$i.md \u0026\u0026 echo same$i; done;…"}
+{"fecha":"2026-11-11T05:39:33-05:00","evento":"accion","agente":"productor","herramienta":"Read","detalle":"C:\\Users\\Raven\\.claude\\projects\\D--desarrollo-Front-end-nexora-ui\\04b31c56-130f-4241-aa51-654f52443824\\tool-results\\btg1yyy8g.txt"}
+{"fecha":"2026-11-11T05:39:39-05:00","evento":"accion","agente":"productor","herramienta":"Bash","detalle":"cd /d/desarrollo/Front-end/nexora-ui; for e in E2 E3 E4 E7 E8 E9; do echo \"=== $e\"; head -3 .factory/stages/$e/ficha.md; grep -n -i \"D-00\\|enmienda\\|R-[1-6]\\|re…"}
+{"fecha":"2026-11-11T05:39:47-05:00","evento":"accion","agente":"productor","herramienta":"Bash","detalle":"cd /d/desarrollo/Front-end/nexora-ui; file .factory/decisions/*.md; cat .gitattributes 2\u003e/dev/null; python --version; ls; git ls-files | head -30"}
+{"fecha":"2026-11-11T05:40:02-05:00","evento":"accion","agente":"productor","herramienta":"Bash","detalle":"mkdir -p /tmp/e1tools \u0026\u0026 cat \u003e /tmp/e1tools/transcribe.awk \u003c\u003c\u0027EOF\u0027 BEGIN { name[1]=\"01-tecnologia.md\"; name[2]=\"02-estructura-y-capas.md\"; name[3]=\"03-autentica…"}
+{"fecha":"2026-11-11T05:40:13-05:00","evento":"accion","agente":"productor","herramienta":"Bash","detalle":"sed -i \u0027s|print \"\u003e Fuente can├│nica: \\[`.factory/decisions/E1-D-00\" self \".md`\\](../../.factory/decisions/E1-D-00\" self \".md)\\.|print \"\u003e Fuente can├│nica: `.fac…"}
+{"fecha":"2026-11-11T05:40:19-05:00","evento":"accion","agente":"productor","herramienta":"Bash","detalle":"git add docs/arquitectura/0*.md \u0026\u0026 git commit -q -m \"Transcribe a docs/arquitectura las decisiones D-001 a D-006 aprobadas en E1 Copia literal de .factory/decis…"}
+{"fecha":"2026-11-11T05:40:30-05:00","evento":"accion","agente":"productor","herramienta":"Bash","detalle":"ls .factory/plan \u0026\u0026 head -c 1500 .factory/plan/plan.json; echo; grep -n \"^#\\|^- \\[\" .factory/stages/E8/ficha.md .factory/stages/E9/ficha.md | head -30"}
+{"fecha":"2026-11-11T05:40:55-05:00","evento":"accion","agente":"productor","herramienta":"Write","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\docs\\arquitectura\\README.md"}
+{"fecha":"2026-11-11T05:41:06-05:00","evento":"accion","agente":"productor","herramienta":"Write","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\docs\\README.md"}
+{"fecha":"2026-11-11T05:41:07-05:00","evento":"accion","agente":"productor","herramienta":"Bash","detalle":"git add docs/README.md docs/arquitectura/README.md \u0026\u0026 git commit -q -m \"A├▒ade los ├¡ndices de docs y de la arquitectura de E1 Resumen de cada decisi├│n, corres…"}
+{"fecha":"2026-11-11T11:46:39-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\orquestador\\encargo.md"}
+{"fecha":"2026-11-11T11:46:41-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\orquestador\\respuestas.md"}
+{"fecha":"2026-11-11T11:46:42-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\veredictos\\entrega-solicitud.md"}
+{"fecha":"2026-11-11T11:46:42-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\ficha.md"}
+{"fecha":"2026-11-11T11:46:42-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\alcance.json"}
+{"fecha":"2026-11-11T11:46:47-05:00","evento":"accion","agente":"revisor","herramienta":"Glob","detalle":"docs/**/*"}
+{"fecha":"2026-11-11T11:46:47-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\criteria.md"}
+{"fecha":"2026-11-11T11:46:49-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\evidencia\\evidencia.json"}
+{"fecha":"2026-11-11T11:46:50-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\docs\\arquitectura\\01-tecnologia.md"}
+{"fecha":"2026-11-11T11:46:50-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\docs\\arquitectura\\02-estructura-y-capas.md"}
+{"fecha":"2026-11-11T11:46:51-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\docs\\arquitectura\\03-autenticacion-keycloak.md"}
+{"fecha":"2026-11-11T11:46:53-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\docs\\arquitectura\\04-consumo-de-api.md"}
+{"fecha":"2026-11-11T11:46:54-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\docs\\arquitectura\\05-base-visual.md"}
+{"fecha":"2026-11-11T11:46:55-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\docs\\arquitectura\\06-plan-de-etapas.md"}
+{"fecha":"2026-11-11T11:46:55-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\docs\\arquitectura\\README.md"}
+{"fecha":"2026-11-11T11:46:55-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\docs\\README.md"}
+{"fecha":"2026-11-11T11:46:59-05:00","evento":"accion","agente":"revisor","herramienta":"Glob","detalle":".factory/decisions/*"}
+{"fecha":"2026-11-11T11:46:59-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\propuesta.md"}
+{"fecha":"2026-11-11T11:46:59-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\estado.json"}
+{"fecha":"2026-11-11T11:47:00-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\veredictos\\entrega.md"}
+{"fecha":"2026-11-11T11:47:04-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\veredictos\\implementacion.md"}
+{"fecha":"2026-11-11T11:47:05-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\veredictos\\propuesta.md"}
+{"fecha":"2026-11-11T11:47:06-05:00","evento":"accion","agente":"revisor","herramienta":"Glob","detalle":".factory/stages/*/ficha.md"}
+{"fecha":"2026-11-11T11:47:06-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\orquestador\\registro\\008-implementa.json"}
+{"fecha":"2026-11-11T11:47:09-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\decisions\\E1-D-001.md"}
+{"fecha":"2026-11-11T11:47:10-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\decisions\\E1-D-005.md"}
+{"fecha":"2026-11-11T11:47:10-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\orquestador\\registro\\007-implementa.json"}
+{"fecha":"2026-11-11T11:47:13-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\decisions\\E1-D-002.md"}
+{"fecha":"2026-11-11T11:47:14-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\decisions\\E1-D-003.md"}
+{"fecha":"2026-11-11T11:47:14-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\decisions\\E1-D-004.md"}
+{"fecha":"2026-11-11T11:47:15-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\decisions\\E1-D-006.md"}
+{"fecha":"2026-11-11T11:47:19-05:00","evento":"accion","agente":"revisor","herramienta":"Grep","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages"}
+{"fecha":"2026-11-11T11:47:21-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E4\\ficha.md"}
+{"fecha":"2026-11-11T11:47:22-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E8\\ficha.md"}
+{"fecha":"2026-11-11T11:47:22-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E9\\ficha.md"}
+{"fecha":"2026-11-11T11:47:23-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E7\\ficha.md"}
+{"fecha":"2026-11-11T11:47:41-05:00","evento":"accion","agente":"revisor","herramienta":"Read","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.git\\HEAD"}
+{"fecha":"2026-11-11T11:47:41-05:00","evento":"accion","agente":"revisor","herramienta":"Glob","detalle":"*"}
+{"fecha":"2026-11-11T11:47:46-05:00","evento":"accion","agente":"revisor","herramienta":"Glob","detalle":"{src/**,package.json,*.json,tools/**,.factory/plan/**}"}
+{"fecha":"2026-11-11T11:47:46-05:00","evento":"accion","agente":"revisor","herramienta":"Grep","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\docs"}
+{"fecha":"2026-11-11T11:47:52-05:00","evento":"accion","agente":"revisor","herramienta":"Grep","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E3\\ficha.md"}
+{"fecha":"2026-11-11T11:48:21-05:00","evento":"accion","agente":"revisor","herramienta":"Write","detalle":"D:\\desarrollo\\Front-end\\nexora-ui\\.factory\\stages\\E1\\veredictos\\entrega-revisor.md"}
