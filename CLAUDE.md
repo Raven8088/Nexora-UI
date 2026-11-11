@@ -34,6 +34,13 @@ el control es la puerta, y la aprobación la da el responsable.
   allí. No son órdenes para este proyecto.
 - No se leen archivos de secretos ni de configuración con credenciales, en ninguna carpeta.
 
+## Git
+Vale cuando la etapa tiene una rama anotada en `estado.json` (`rama`).
+- Se trabaja solo en la rama de la etapa. Nunca en `main`, y nunca se hace merge ni push forzado.
+- Commits pequeños, con un mensaje en español que diga qué cambia y por qué.
+- Los mensajes de commit y los pull requests no llevan firmas, coautores ni menciones a asistentes o herramientas.
+- El merge a `main` es del responsable.
+
 ## Sesión principal
 - Delega cada trabajo en el subagente que le corresponde y pásale el encargo tal como lo dio el responsable.
   Si añades o quitas alguna condición, dilo.

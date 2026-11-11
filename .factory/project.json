@@ -1,23 +1,13 @@
 {
   "nombre": "Nexora UI",
+  "github": { "activo": true, "base": "main", "tablero": 8 },
   "modo": "estricto",
-  "puertas": [
-    "arquitectura",
-    "propuesta",
-    "implementacion",
-    "entrega"
-  ],
+  "puertas": ["arquitectura", "propuesta", "implementacion", "entrega"],
   "segundaOpinion": [],
   "comprobacionesExtra": {},
-  "ignorar": [
-    "**/target/**",
-    "**/node_modules/**",
-    "**/build/**",
-    "**/dist/**",
-    "**/.gradle/**",
-    "**/.idea/**",
-    "**/.vscode/**"
+  "ignorar": ["**/node_modules/**", "**/dist/**", "**/.angular/**", "**/coverage/**", "**/.vscode/**", "**/.idea/**"],
+  "pruebas": [
+    { "nombre": "verificar", "dir": ".", "comando": "npm run verificar" }
   ],
-  "pruebas": [],
-  "documentacion": []
+  "documentacion": ["README.md"]
 }
