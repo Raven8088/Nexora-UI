@@ -59,3 +59,7 @@
 {"fecha":"2026-11-11T11:46:31-05:00","evento":"puerta","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","resultado":"PENDIENTE-REVISION","hallazgos":0,"etapa":"E1","bloqueantes":0,"puerta":"entrega"}
 {"fecha":"2026-11-11T11:46:35-05:00","evento":"agente-lanzado","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","agente":"revisor","detalle":"revisa","etapa":"E1","puerta":"entrega"}
 {"fecha":"2026-11-11T11:48:49-05:00","evento":"puerta","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","resultado":"PENDIENTE-APROBACION","hallazgos":0,"etapa":"E1","bloqueantes":0,"puerta":"entrega"}
+{"fecha":"2026-11-11T11:48:58-05:00","evento":"pull-request","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","detalle":"#15 desde etapa/E1-arquitectura-inicial-de-la-interfaz","etapa":"E1"}
+{"fecha":"2026-11-11T12:05:24-05:00","evento":"puerta","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","resultado":"PENDIENTE-APROBACION","hallazgos":0,"etapa":"E1","bloqueantes":0,"puerta":"entrega"}
+{"fecha":"2026-11-11T12:05:26-05:00","evento":"aprobacion","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","puerta":"entrega","etapa":"E1"}
+{"fecha":"2026-11-11T12:05:31-05:00","evento":"aprobacion-interfaz","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","puerta":"entrega","etapa":"E1"}

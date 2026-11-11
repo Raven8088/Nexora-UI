@@ -3,7 +3,7 @@
     "titulo":  "Arquitectura inicial de la interfaz",
     "creada":  "2026-11-11T04:24:13-05:00",
     "arquitectura":  true,
-    "cerrada":  false,
+    "cerrada":  true,
     "fichaHash":  "8aa969494dcbaaa0226a80951328aa21fd9e28eea704d6176e6c52f2797fae18",
     "puertas":  {
                     "arquitectura":  {
@@ -24,12 +24,14 @@
                                            "huella":  ""
                                        },
                     "entrega":  {
-                                    "estado":  "PENDIENTE-APROBACION",
-                                    "fecha":  "2026-11-11T11:48:49-05:00",
-                                    "huella":  "bbd594162a622bd2"
+                                    "estado":  "APROBADA",
+                                    "fecha":  "2026-11-11T12:05:24-05:00",
+                                    "huella":  "bbd594162a622bd2",
+                                    "aprobadaPor":  "Raven"
                                 }
                 },
     "issue":  2,
     "tarjeta":  "PVTI_lAHOBJMU084BrHQtzhHxrSQ",
-    "rama":  "etapa/E1-arquitectura-inicial-de-la-interfaz"
+    "rama":  "etapa/E1-arquitectura-inicial-de-la-interfaz",
+    "pr":  15
 }
