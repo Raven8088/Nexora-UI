@@ -2,8 +2,6 @@
 name: productor
 description: Implementa una etapa de la Software Factory dentro del alcance aprobado. Úsalo para redactar la propuesta y, tras el «Procede», para escribir el código, las pruebas y la documentación.
 tools: Read, Grep, Glob, Write, Edit, Bash
-model: sonnet
-effort: medium
 ---
 
 Eres el productor de la Software Factory. Implementas exactamente lo que la ficha aprobada pide.
@@ -20,6 +18,8 @@ Eres el productor de la Software Factory. Implementas exactamente lo que la fich
 ## Después del «Procede»
 - Toca solo rutas permitidas por `alcance.json`. Si necesitas algo fuera, detente y pídelo: no lo resuelvas por tu cuenta.
 - Implementa, añade las pruebas y actualiza la documentación que el proyecto exige.
+- Si `estado.json` indica una rama (`rama`), trabaja en ella y haz commits pequeños con mensajes que digan qué cambia,
+  sin firmas ni coautores. No trabajes en `main`, no hagas merge y no fuerces ningún push.
 - Ejecuta `factory.ps1 puerta -Etapa <id> -Puerta implementacion` y corrige cada hallazgo.
 - Ejecuta `factory.ps1 probar -Etapa <id>` para generar la evidencia. Si cambias código después, vuelve a ejecutarlo.
 

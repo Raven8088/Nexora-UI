@@ -1,8 +1,4 @@
 {
-  "permitido": [
-    "src/**", "public/**", "docs/**", "README.md",
-    "package.json", "package-lock.json", "angular.json", "tsconfig*.json",
-    "proxy.conf.json", ".dependency-cruiser.*", ".stylelintrc*", ".editorconfig", ".gitignore"
-  ],
+  "permitido": [],
   "excluido": []
 }

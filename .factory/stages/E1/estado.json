@@ -1,18 +1,11 @@
 {
     "id":  "E1",
     "titulo":  "Arquitectura inicial de la interfaz",
-    "creada":  "2026-11-11T00:59:34-05:00",
-    "arquitectura":  true,
+    "creada":  "2026-11-11T04:24:13-05:00",
+    "arquitectura":  false,
     "cerrada":  false,
     "fichaHash":  null,
     "puertas":  {
-                    "arquitectura":  {
-                                         "estado":  "APROBADA",
-                                         "fecha":  "2026-11-11T02:58:52-05:00",
-                                         "huella":  "f0766b2b5576f794",
-                                         "aprobadaPor":  "Raven"
-                                     }
-                },
-    "issue":  1,
-    "tarjeta":  "PVTI_lAHOBJMU084BrHQtzhHvqt4"
+
+                }
 }

@@ -1,19 +1,5 @@
-{"fecha":"2026-11-11T00:57:10-05:00","evento":"alta","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","nombre":"Nexora UI"}
-{"fecha":"2026-11-11T00:59:34-05:00","evento":"etapa-nueva","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","titulo":"Arquitectura inicial de la interfaz","etapa":"E1","arquitectura":true}
-{"fecha":"2026-11-11T01:09:54-05:00","evento":"puerta","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","resultado":"RECHAZADA","hallazgos":4,"etapa":"E1","bloqueantes":4,"puerta":"arquitectura"}
-{"fecha":"2026-11-11T01:19:16-05:00","evento":"claude-instalado","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","archivo":"settings.json"}
-{"fecha":"2026-11-11T01:46:51-05:00","evento":"claude-instalado","equipo":"DESKTOP-AJU2OEK","usuario":"Raven"}
-{"fecha":"2026-11-11T02:13:14-05:00","evento":"config-cambiada","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","modo":"estricto","puertas":["arquitectura","propuesta","implementacion","entrega"],"reglasDesactivadas":[]}
-{"fecha":"2026-11-11T02:13:14-05:00","evento":"claude-instalado","equipo":"DESKTOP-AJU2OEK","usuario":"Raven"}
-{"fecha":"2026-11-11T02:23:11-05:00","evento":"puerta","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","resultado":"PENDIENTE-REVISION","hallazgos":0,"etapa":"E1","bloqueantes":0,"puerta":"arquitectura"}
-{"fecha":"2026-11-11T02:23:11-05:00","evento":"github-error","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","detalle":"La variable \u0027$Global:SFNative\u0027 no se puede recuperar porque no se ha establecido.","etapa":"E1"}
-{"fecha":"2026-11-11T02:25:33-05:00","evento":"puerta","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","resultado":"PENDIENTE-REVISION","hallazgos":0,"etapa":"E1","bloqueantes":0,"puerta":"arquitectura"}
-{"fecha":"2026-11-11T02:28:16-05:00","evento":"config-cambiada","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","modo":"estricto","puertas":["arquitectura","propuesta","implementacion","entrega"],"reglasDesactivadas":[]}
-{"fecha":"2026-11-11T02:28:18-05:00","evento":"tablero","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","detalle":"tablero #8"}
-{"fecha":"2026-11-11T02:45:17-05:00","evento":"puerta","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","resultado":"PENDIENTE-APROBACION","hallazgos":0,"etapa":"E1","bloqueantes":0,"puerta":"arquitectura"}
-{"fecha":"2026-11-11T02:53:16-05:00","evento":"puerta","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","resultado":"PENDIENTE-REVISION","hallazgos":0,"etapa":"E1","bloqueantes":0,"puerta":"arquitectura"}
-{"fecha":"2026-11-11T02:56:45-05:00","evento":"puerta","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","resultado":"PENDIENTE-APROBACION","hallazgos":0,"etapa":"E1","bloqueantes":0,"puerta":"arquitectura"}
-{"fecha":"2026-11-11T02:58:52-05:00","evento":"puerta","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","resultado":"PENDIENTE-APROBACION","hallazgos":0,"etapa":"E1","bloqueantes":0,"puerta":"arquitectura"}
-{"fecha":"2026-11-11T02:58:54-05:00","evento":"aprobacion","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","puerta":"arquitectura","etapa":"E1"}
-{"fecha":"2026-11-11T02:58:58-05:00","evento":"aprobacion-remota","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","detalle":"tarjeta movida a Procede","etapa":"E1","puerta":"arquitectura"}
-{"fecha":"2026-11-11T03:06:05-05:00","evento":"config-cambiada","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","modo":"estricto","puertas":["arquitectura","propuesta","implementacion","entrega"],"reglasDesactivadas":[]}
+{"fecha":"2026-11-11T04:15:25-05:00","evento":"alta","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","nombre":"Nexora-UI"}
+{"fecha":"2026-11-11T04:15:25-05:00","evento":"claude-instalado","equipo":"DESKTOP-AJU2OEK","usuario":"Raven"}
+{"fecha":"2026-11-11T04:24:13-05:00","evento":"etapa-nueva","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","titulo":"Arquitectura inicial de la interfaz","etapa":"E1","arquitectura":false}
+{"fecha":"2026-11-11T04:31:33-05:00","evento":"reincorporado","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","nombre":"Nexora-UI"}
+{"fecha":"2026-11-11T04:31:33-05:00","evento":"claude-instalado","equipo":"DESKTOP-AJU2OEK","usuario":"Raven"}
