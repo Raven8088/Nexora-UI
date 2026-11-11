@@ -1,0 +1,23 @@
+{
+  "nombre": "Nexora UI",
+  "modo": "estricto",
+  "puertas": [
+    "arquitectura",
+    "propuesta",
+    "implementacion",
+    "entrega"
+  ],
+  "segundaOpinion": [],
+  "comprobacionesExtra": {},
+  "ignorar": [
+    "**/target/**",
+    "**/node_modules/**",
+    "**/build/**",
+    "**/dist/**",
+    "**/.gradle/**",
+    "**/.idea/**",
+    "**/.vscode/**"
+  ],
+  "pruebas": [],
+  "documentacion": []
+}

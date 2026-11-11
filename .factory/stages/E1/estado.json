@@ -1,0 +1,15 @@
+{
+    "id":  "E1",
+    "titulo":  "Arquitectura inicial de la interfaz",
+    "creada":  "2026-11-11T00:59:34-05:00",
+    "arquitectura":  true,
+    "cerrada":  false,
+    "fichaHash":  null,
+    "puertas":  {
+                    "arquitectura":  {
+                                         "estado":  "RECHAZADA",
+                                         "fecha":  "2026-11-11T01:09:54-05:00",
+                                         "huella":  ""
+                                     }
+                }
+}

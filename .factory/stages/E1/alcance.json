@@ -1,0 +1,4 @@
+{
+  "permitido": ["docs/**", "README.md"],
+  "excluido": []
+}

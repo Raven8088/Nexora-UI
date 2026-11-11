@@ -1,0 +1,4 @@
+node_modules/
+dist/
+.factory/ledger/actividad.jsonl
+.claude/settings.local.json

@@ -1,0 +1,5 @@
+{"fecha":"2026-11-11T00:57:10-05:00","evento":"alta","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","nombre":"Nexora UI"}
+{"fecha":"2026-11-11T00:59:34-05:00","evento":"etapa-nueva","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","titulo":"Arquitectura inicial de la interfaz","etapa":"E1","arquitectura":true}
+{"fecha":"2026-11-11T01:09:54-05:00","evento":"puerta","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","resultado":"RECHAZADA","hallazgos":4,"etapa":"E1","bloqueantes":4,"puerta":"arquitectura"}
+{"fecha":"2026-11-11T01:19:16-05:00","evento":"claude-instalado","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","archivo":"settings.json"}
+{"fecha":"2026-11-11T01:46:51-05:00","evento":"claude-instalado","equipo":"DESKTOP-AJU2OEK","usuario":"Raven"}
