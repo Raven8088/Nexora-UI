@@ -1,0 +1,18 @@
+{
+    "permitido":  [
+                      "src/styles/**",
+                      "src/styles.scss",
+                      "src/index.html",
+                      "src/app/shell/**",
+                      "src/app/shared/ui/**",
+                      "src/app/app.routes.ts",
+                      "src/app/app.ts",
+                      "angular.json",
+                      "package.json",
+                      "package-lock.json",
+                      "docs/**"
+                  ],
+    "excluido":  [
+
+                 ]
+}

@@ -1,0 +1,12 @@
+{
+    "permitido":  [
+                      "src/app/features/test-chat/**",
+                      "src/app/app.routes.ts",
+                      "src/app/shell/**",
+                      "src/environments/**",
+                      "docs/**"
+                  ],
+    "excluido":  [
+
+                 ]
+}

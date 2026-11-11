@@ -1,0 +1,17 @@
+{
+    "id":  "E9",
+    "titulo":  "Chat de pruebas de peticiones",
+    "creada":  "2026-11-11T05:30:47-05:00",
+    "arquitectura":  false,
+    "cerrada":  false,
+    "fichaHash":  null,
+    "dependeDe":  [
+                      "E4",
+                      "E5"
+                  ],
+    "puertas":  {
+
+                },
+    "issue":  10,
+    "tarjeta":  "PVTI_lAHOBJMU084BrHQtzhHyZYw"
+}

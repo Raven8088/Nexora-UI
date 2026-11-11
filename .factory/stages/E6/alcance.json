@@ -1,0 +1,12 @@
+{
+    "permitido":  [
+                      "src/app/features/dictionary/**",
+                      "src/app/app.routes.ts",
+                      "src/app/shell/**",
+                      "src/environments/**",
+                      "docs/**"
+                  ],
+    "excluido":  [
+
+                 ]
+}

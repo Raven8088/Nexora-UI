@@ -1,0 +1,419 @@
+{
+  "etapas": [
+    {
+      "id": "E2",
+      "titulo": "Proyecto base y verificación de calidad",
+      "arquitectura": false,
+      "dependeDe": [
+        "E1"
+      ],
+      "objetivo": "Proyecto Angular creado según D-001, con las comprobaciones de D-002 activas y sin pantallas de negocio.",
+      "alcance": [
+        "ng new con TypeScript estricto, zoneless, SCSS y Vitest.",
+        "ESLint con angular-eslint, typescript-eslint estricto, eslint-plugin-boundaries y no-restricted-imports de D-002.",
+        "Enmienda a D-002 autorizada por el responsable: la configuración de capas clasifica también main.ts, environments/ y los archivos de prueba, de modo que ningún archivo del proyecto quede como desconocido.",
+        "Prettier.",
+        "Presupuesto de bundle.",
+        "environments/ con su interfaz tipada (D-004).",
+        "proxy.conf.json.",
+        "Componente raíz vacío.",
+        "Prueba que demuestra que una importación entre módulos hace fallar el lint.",
+        "Documentar en docs/ que añadir un módulo toca una ruta, una entrada de menú y los archivos de environments/ (corrige la imprecisión de D-002).",
+        "Añadir a la configuración de la fábrica los comandos de prueba del proyecto queda para el responsable; la etapa deja escritos en docs/ los comandos exactos."
+      ],
+      "fueraDeAlcance": [
+        "Tema, shell, autenticación y cualquier módulo."
+      ],
+      "prioridades": [
+        "Respetar las decisiones aprobadas D-001 a D-006 y las enmiendas que indica esta ficha.",
+        "Corrección comprobada con pruebas antes que rapidez.",
+        "Simplicidad: nada que esta etapa no necesite."
+      ],
+      "criterios": [
+        "ng build termina sin errores ni avisos.",
+        "ng lint --max-warnings=0 termina con 0 problemas, incluidos main.ts, environments/ y los archivos de prueba.",
+        "ng test pasa.",
+        "La prueba de límites falla al importar features/a desde features/b y pasa sin esa importación.",
+        "package.json cumple todas las versiones mínimas de D-001, y Angular, Material, CDK y angular-eslint comparten major.",
+        "tsconfig.json tiene activas las opciones estrictas de D-001.",
+        "docs/ contiene los comandos exactos de build, lint y pruebas."
+      ],
+      "decisiones": [
+        "D-001 a D-006 de E1, en .factory/decisions/."
+      ],
+      "permitido": [
+        "package.json",
+        "package-lock.json",
+        "angular.json",
+        "tsconfig*.json",
+        "eslint.config.js",
+        ".prettierrc*",
+        ".prettierignore",
+        "proxy.conf.json",
+        "src/**",
+        "tools/lint-fixtures/**",
+        "docs/**",
+        ".gitignore",
+        ".editorconfig"
+      ],
+      "excluido": []
+    },
+    {
+      "id": "E3",
+      "titulo": "Tema visual, shell y componentes compartidos de interfaz",
+      "arquitectura": false,
+      "dependeDe": [
+        "E2"
+      ],
+      "objetivo": "La aplicación muestra el marco definitivo (barra superior, menú lateral y área de contenido) con la paleta y la tipografía de D-005.",
+      "alcance": [
+        "styles/ (tokens, colores generados, tema y sobrescrituras).",
+        "Inter y Material Symbols servidos localmente.",
+        "shell/ con el menú de tres entradas, que apuntan a rutas aún sin módulo y muestran «Próximamente».",
+        "Componentes de shared/ui: page-header, loading-state, error-state, empty-state, simulated-data-notice y confirm-dialog, con sus pruebas.",
+        "Página /sin-permiso (solo la vista).",
+        "Enmienda a D-002 autorizada por el responsable: confirm-dialog es la única excepción a la regla de que los componentes compartidos no inyectan nada; puede inyectar los datos del diálogo de Angular Material y nada más. Se documenta en docs/.",
+        "Enmienda a D-005 autorizada por el responsable: documentar en docs/ cómo se ajustan los tamaños de letra de Angular Material a los cinco tamaños fijados, y recalcular con la fórmula WCAG los valores de contraste de la paleta, corrigiendo los dos que D-005 da mal."
+      ],
+      "fueraDeAlcance": [
+        "Autenticación (el menú de usuario es un hueco vacío) y cualquier llamada a API."
+      ],
+      "prioridades": [
+        "Respetar las decisiones aprobadas D-001 a D-006 y las enmiendas que indica esta ficha.",
+        "Corrección comprobada con pruebas antes que rapidez.",
+        "Simplicidad: nada que esta etapa no necesite."
+      ],
+      "criterios": [
+        "Los tokens --mat-sys-primary y --mat-sys-on-primary valen exactamente #7B1E34 y #FFFFFF; lo comprueba una prueba sobre los estilos calculados.",
+        "Ningún .scss fuera de styles/ contiene colores literales.",
+        "Cada componente de shared/ui tiene pruebas de sus entradas y salidas.",
+        "La aplicación no hace peticiones a dominios externos al cargar (fuentes e iconos locales).",
+        "docs/ incluye la tabla de contrastes recalculada y la correspondencia entre los tamaños de Angular Material y los cinco tamaños del proyecto.",
+        "Ningún componente de shared/ui llama a inject() salvo confirm-dialog, y este solo para los datos del diálogo.",
+        "Lint, build y pruebas terminan sin errores ni avisos."
+      ],
+      "decisiones": [
+        "D-001 a D-006 de E1, en .factory/decisions/."
+      ],
+      "permitido": [
+        "src/styles/**",
+        "src/styles.scss",
+        "src/index.html",
+        "src/app/shell/**",
+        "src/app/shared/ui/**",
+        "src/app/app.routes.ts",
+        "src/app/app.ts",
+        "angular.json",
+        "package.json",
+        "package-lock.json",
+        "docs/**"
+      ],
+      "excluido": []
+    },
+    {
+      "id": "E4",
+      "titulo": "Autenticación con Keycloak",
+      "arquitectura": false,
+      "dependeDe": [
+        "E3"
+      ],
+      "objetivo": "Nadie ve la aplicación sin sesión de Keycloak, y las peticiones a las API de Nexora llevan el token del usuario (D-003).",
+      "alcance": [
+        "Arranque con keycloak-js (login-required, PKCE) en main.ts.",
+        "Página estática «servicio de acceso no disponible».",
+        "shared/auth: Session, permission.guard y el interceptor limitado a environment.apis.",
+        "Menú de usuario con «Cerrar sesión».",
+        "Tratamiento de 401.",
+        "Un inquilino por sesión (respuesta del responsable)."
+      ],
+      "fueraDeAlcance": [
+        "Configuración del realm en Keycloak: el alta del cliente nexora-ui y de los datos de los tokens la hace el responsable antes de esta etapa.",
+        "Permisos por acción dentro de los módulos."
+      ],
+      "prioridades": [
+        "Respetar las decisiones aprobadas D-001 a D-006 y las enmiendas que indica esta ficha.",
+        "Corrección comprobada con pruebas antes que rapidez.",
+        "Simplicidad: nada que esta etapa no necesite."
+      ],
+      "criterios": [
+        "Sin sesión, ninguna ruta renderiza componentes de la aplicación; el navegador acaba en la URL de autorización de Keycloak con code_challenge_method=S256. Se prueba con un keycloak-js sustituido en las pruebas.",
+        "El interceptor añade Authorization solo a URL bajo environment.apis.*.baseUrl; una prueba lo verifica con una URL externa.",
+        "Ningún archivo del repositorio guarda tokens en localStorage o sessionStorage ni contiene secretos; lo comprueba una búsqueda en la revisión.",
+        "El guard redirige a /sin-permiso cuando falta el permiso; probado.",
+        "Con Keycloak caído aparece la página estática con «Reintentar»."
+      ],
+      "decisiones": [
+        "D-001 a D-006 de E1, en .factory/decisions/."
+      ],
+      "permitido": [
+        "src/main.ts",
+        "src/index.html",
+        "src/app/app.config.ts",
+        "src/app/shared/auth/**",
+        "src/app/shell/**",
+        "src/environments/**",
+        "package.json",
+        "package-lock.json",
+        "docs/**"
+      ],
+      "excluido": []
+    },
+    {
+      "id": "E5",
+      "titulo": "Acceso a datos común",
+      "arquitectura": false,
+      "dependeDe": [
+        "E2"
+      ],
+      "objetivo": "Existe la pieza común con la que todos los repositorios http convierten respuestas y errores de Nexora (D-004).",
+      "alcance": [
+        "shared/data: tipo NexoraError, toNexoraError() (estado HTTP, problem+json, X-Request-Id), Page<T> y su conversión desde PageResponse de Semantic, y utilidades de ETag/If-Match."
+      ],
+      "fueraDeAlcance": [
+        "Repositorios de módulos y pantallas."
+      ],
+      "prioridades": [
+        "Respetar las decisiones aprobadas D-001 a D-006 y las enmiendas que indica esta ficha.",
+        "Corrección comprobada con pruebas antes que rapidez.",
+        "Simplicidad: nada que esta etapa no necesite."
+      ],
+      "criterios": [
+        "Cada variante de NexoraError tiene al menos una prueba que parte de una respuesta HTTP representativa: red caída, 401, 403, 404, 409, 412, 400 con problem+json con campos, 422, 500 y 503.",
+        "Cobertura de líneas de shared/data igual o superior al 90 %.",
+        "Lint y build sin avisos."
+      ],
+      "decisiones": [
+        "D-001 a D-006 de E1, en .factory/decisions/."
+      ],
+      "permitido": [
+        "src/app/shared/data/**",
+        "docs/**"
+      ],
+      "excluido": []
+    },
+    {
+      "id": "E6",
+      "titulo": "Diccionario semántico: consulta de tarjetas",
+      "arquitectura": false,
+      "dependeDe": [
+        "E4",
+        "E5"
+      ],
+      "objetivo": "El administrador elige una fuente de datos y consulta las tarjetas del diccionario (conceptos, métricas y dimensiones) con datos reales de Nexora Semantic.",
+      "alcance": [
+        "Módulo features/dictionary con sus tres capas.",
+        "Repositorio http (GET /data-sources, GET …/definitions con filtro por tipo y estado y paginación, GET …/definitions/{id}) y repositorio simulado.",
+        "Fachada.",
+        "Lista en forma de tarjetas, con filtro y paginación, y vista de detalle.",
+        "Ruta con permission: semantic:catalog:read."
+      ],
+      "fueraDeAlcance": [
+        "Crear, editar, aprobar y desactivar (E7), sugerencias y relaciones.",
+        "Reglas de negocio: son una capacidad distinta y no se mezclan con las definiciones semánticas."
+      ],
+      "prioridades": [
+        "Respetar las decisiones aprobadas D-001 a D-006 y las enmiendas que indica esta ficha.",
+        "Corrección comprobada con pruebas antes que rapidez.",
+        "Simplicidad: nada que esta etapa no necesite."
+      ],
+      "criterios": [
+        "El módulo se carga bajo demanda: su chunk no está en el bundle inicial (informe de ng build).",
+        "La fachada tiene pruebas con el repositorio simulado: carga, filtro, paginación, error unavailable y lista vacía.",
+        "El repositorio http tiene pruebas con HttpTestingController.",
+        "Con la API parada, la sección muestra error-state con «Reintentar», y el resto de la aplicación sigue funcionando.",
+        "Con data: 'simulated', aparece el aviso de datos de demostración.",
+        "Los componentes de presentation/components solo importan tipos de application; lo comprueba el lint. Que no llamen a inject() lo verifica el revisor."
+      ],
+      "decisiones": [
+        "D-001 a D-006 de E1, en .factory/decisions/."
+      ],
+      "permitido": [
+        "src/app/features/dictionary/**",
+        "src/app/app.routes.ts",
+        "src/app/shell/**",
+        "src/environments/**",
+        "docs/**"
+      ],
+      "excluido": []
+    },
+    {
+      "id": "E7",
+      "titulo": "Diccionario semántico: alta, edición, aprobación y desactivación",
+      "arquitectura": false,
+      "dependeDe": [
+        "E6"
+      ],
+      "objetivo": "El administrador crea y edita tarjetas en borrador, y las aprueba o desactiva según sus permisos, con control de versiones.",
+      "alcance": [
+        "Formularios de alta y edición por tipo (concepto, métrica y dimensión).",
+        "PUT con If-Match.",
+        "approve y deactivate con diálogo de confirmación (y motivo en la desactivación).",
+        "Acciones visibles según semantic:proposal:write y semantic:proposal:approve.",
+        "Mensajes de conflict e invalid."
+      ],
+      "fueraDeAlcance": [
+        "Revisión de sugerencias automáticas y relaciones: quedan para una etapa posterior (respuesta del responsable)."
+      ],
+      "prioridades": [
+        "Respetar las decisiones aprobadas D-001 a D-006 y las enmiendas que indica esta ficha.",
+        "Corrección comprobada con pruebas antes que rapidez.",
+        "Simplicidad: nada que esta etapa no necesite."
+      ],
+      "criterios": [
+        "Pruebas de la fachada para crear, editar, aprobar, desactivar, conflict (412/409) e invalid con errores por campo.",
+        "Toda escritura envía If-Match con la versión cargada; una prueba de repositorio lo verifica.",
+        "Sin semantic:proposal:approve, no se muestran «Aprobar» ni «Desactivar».",
+        "Tras un error, el formulario conserva lo escrito."
+      ],
+      "decisiones": [
+        "D-001 a D-006 de E1, en .factory/decisions/."
+      ],
+      "permitido": [
+        "src/app/features/dictionary/**",
+        "docs/**"
+      ],
+      "excluido": []
+    },
+    {
+      "id": "E8",
+      "titulo": "Reglas de negocio (con datos simulados)",
+      "arquitectura": false,
+      "dependeDe": [
+        "E4",
+        "E5"
+      ],
+      "objetivo": "El administrador lista, crea, edita, activa y desactiva reglas de negocio sobre un repositorio simulado, listo para conectarse cuando el backend ofrezca esa capacidad.",
+      "alcance": [
+        "Definición del responsable: las reglas son reglas de negocio, es decir, condiciones, restricciones y criterios que determinan cómo se interpretan, evalúan o aplican procesos empresariales. Son una capacidad funcional distinta de las tarjetas de conceptos, métricas y dimensiones del Diccionario Semántico.",
+        "La interfaz distingue con claridad las definiciones semánticas de las reglas de negocio: módulo, menú, textos y pantallas propios.",
+        "Módulo features/rules con sus tres capas.",
+        "Modelo provisional de regla de negocio, documentado como provisional en docs/.",
+        "Repositorio simulado con datos de ejemplo y el contrato RulesRepository.",
+        "Fachada.",
+        "Lista, detalle y formulario.",
+        "Aviso permanente de datos de demostración."
+      ],
+      "fueraDeAlcance": [
+        "Repositorio http: no se presupone que el backend tenga un CRUD ni una API de reglas. Nexora Semantic tiene restricciones y validaciones, pero no un módulo de reglas de negocio; su existencia en el backend está por verificar.",
+        "Cualquier cambio en el backend."
+      ],
+      "prioridades": [
+        "Respetar las decisiones aprobadas D-001 a D-006 y las enmiendas que indica esta ficha.",
+        "Corrección comprobada con pruebas antes que rapidez.",
+        "Simplicidad: nada que esta etapa no necesite."
+      ],
+      "criterios": [
+        "El aviso «Datos de demostración…» está presente en todas las pantallas del módulo; probado.",
+        "Pruebas de la fachada para listar, crear, editar, activar, desactivar y validación.",
+        "El módulo no importa de dictionary ni de test-chat (lint).",
+        "Su chunk no está en el bundle inicial.",
+        "Ningún texto de la interfaz llama «regla» a una definición semántica ni al revés; lo verifica el revisor.",
+        "docs/ declara el modelo como provisional y lista qué habría que verificar en el backend para conectarlo."
+      ],
+      "decisiones": [
+        "D-001 a D-006 de E1, en .factory/decisions/."
+      ],
+      "permitido": [
+        "src/app/features/rules/**",
+        "src/app/app.routes.ts",
+        "src/app/shell/**",
+        "src/environments/**",
+        "docs/**"
+      ],
+      "excluido": []
+    },
+    {
+      "id": "E9",
+      "titulo": "Chat de pruebas de peticiones",
+      "arquitectura": false,
+      "dependeDe": [
+        "E4",
+        "E5"
+      ],
+      "objetivo": "El administrador escribe una pregunta en lenguaje natural, elige la fuente de datos y ve la respuesta de Nexora: informe, aclaración pedida, no soportada o rechazo.",
+      "alcance": [
+        "Decisión del responsable: el chat usa la API real de Nexora Intelligence desde la máquina local, manteniendo la autenticación existente y sin modificar ese motor. Su funcionamiento con Wellnode ya está comprobado con Postman.",
+        "Módulo features/test-chat con sus tres capas.",
+        "Contrato TestChatRepository con la forma de POST /api/v1/questions.",
+        "Repositorio http, activo en environment.development.ts a través del proxy del mismo origen.",
+        "Repositorio simulado con respuestas de cada tipo, para los entornos que no son el local.",
+        "Historial de la conversación solo en memoria.",
+        "Vista de la respuesta: tabla de resultados y mensaje de aclaración.",
+        "Límite de longitud de la pregunta: se toma de la validación de POST /api/v1/questions en Nexora Intelligence, leída en modo solo lectura, y se cita en docs/ con el valor y el archivo de origen."
+      ],
+      "fueraDeAlcance": [
+        "Guardar conversaciones y exportar resultados.",
+        "Uso del chat contra la API real fuera de la máquina local.",
+        "Cualquier cambio en Nexora Intelligence, Semantic o Reports."
+      ],
+      "prioridades": [
+        "Respetar las decisiones aprobadas D-001 a D-006 y las enmiendas que indica esta ficha.",
+        "Corrección comprobada con pruebas antes que rapidez.",
+        "Simplicidad: nada que esta etapa no necesite."
+      ],
+      "criterios": [
+        "Pruebas de la fachada para cada tipo de respuesta y para unavailable.",
+        "El envío se bloquea mientras hay una pregunta en curso.",
+        "Una pregunta que supera el límite documentado en docs/ se rechaza antes de enviarla; probado con ese valor.",
+        "environment.ts tiene testChat.data = 'simulated' y environment.development.ts usa el repositorio http; lo verifica una prueba.",
+        "El aviso de datos de demostración aparece en modo simulado.",
+        "El repositorio http tiene pruebas con HttpTestingController para cada tipo de respuesta."
+      ],
+      "decisiones": [
+        "D-001 a D-006 de E1, en .factory/decisions/."
+      ],
+      "permitido": [
+        "src/app/features/test-chat/**",
+        "src/app/app.routes.ts",
+        "src/app/shell/**",
+        "src/environments/**",
+        "docs/**"
+      ],
+      "excluido": []
+    },
+    {
+      "titulo": "Reglas de negocio conectadas a Nexora",
+      "espera": "Falta verificar si el backend ofrece reglas de negocio y, en su caso, que publique el contrato de su API.",
+      "objetivo": "Sustituir el repositorio simulado de reglas por uno conectado al backend.",
+      "alcance": [
+        "Repositorio http del módulo de reglas y ajuste del modelo provisional al contrato real."
+      ],
+      "fueraDeAlcance": [
+        "Construir la capacidad en el backend."
+      ]
+    },
+    {
+      "titulo": "Chat de pruebas contra la API real fuera de la máquina local",
+      "espera": "Nexora Intelligence no ofrece un punto de entrada de preguntas que autentique al usuario con su token de Keycloak y sea accesible fuera de la máquina local.",
+      "objetivo": "Usar el chat con la API real en entornos compartidos.",
+      "alcance": [
+        "Activar el repositorio http del chat fuera del entorno local."
+      ],
+      "fueraDeAlcance": [
+        "Modificar Nexora Intelligence."
+      ]
+    },
+    {
+      "titulo": "Despliegue de Nexora UI",
+      "espera": "El responsable no ha abierto el alcance de despliegue.",
+      "objetivo": "Publicar la interfaz detrás de un proxy inverso del mismo origen, con configuración por entorno.",
+      "alcance": [
+        "Proxy inverso, configuración por entorno y guía de despliegue."
+      ],
+      "fueraDeAlcance": [
+        "Integración continua."
+      ]
+    },
+    {
+      "titulo": "Diccionario semántico: revisión de sugerencias automáticas",
+      "espera": "El responsable la deja para después de E7.",
+      "objetivo": "Revisar, aceptar o rechazar las sugerencias automáticas del diccionario que ya ofrece el backend.",
+      "alcance": [
+        "Pantalla de sugerencias con aceptar y rechazar."
+      ],
+      "fueraDeAlcance": [
+        "Relaciones entre definiciones."
+      ]
+    }
+  ]
+}

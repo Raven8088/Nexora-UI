@@ -5,3 +5,57 @@
 {"fecha":"2026-11-11T04:31:33-05:00","evento":"claude-instalado","equipo":"DESKTOP-AJU2OEK","usuario":"Raven"}
 {"fecha":"2026-11-11T04:43:02-05:00","evento":"config-cambiada","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","modo":"estricto","puertas":["arquitectura","propuesta","implementacion","entrega"],"reglasDesactivadas":[]}
 {"fecha":"2026-11-11T04:43:04-05:00","evento":"tablero","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","detalle":"tablero #8"}
+{"fecha":"2026-11-11T04:51:22-05:00","evento":"repositorio-conectado","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","detalle":"https://github.com/Raven8088/Nexora-UI.git"}
+{"fecha":"2026-11-11T04:54:13-05:00","evento":"puerta","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","resultado":"RECHAZADA","hallazgos":1,"etapa":"E1","bloqueantes":1,"puerta":"arquitectura"}
+{"fecha":"2026-11-11T04:54:19-05:00","evento":"agente-lanzado","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","agente":"arquitecto","detalle":"decision","etapa":"E1","puerta":"arquitectura"}
+{"fecha":"2026-11-11T05:02:22-05:00","evento":"puerta","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","resultado":"PENDIENTE-REVISION","hallazgos":0,"etapa":"E1","bloqueantes":0,"puerta":"arquitectura"}
+{"fecha":"2026-11-11T05:02:26-05:00","evento":"agente-lanzado","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","agente":"revisor","detalle":"revisa","etapa":"E1","puerta":"arquitectura"}
+{"fecha":"2026-11-11T05:04:23-05:00","evento":"puerta","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","resultado":"PENDIENTE-APROBACION","hallazgos":0,"etapa":"E1","bloqueantes":0,"puerta":"arquitectura"}
+{"fecha":"2026-11-11T05:08:23-05:00","evento":"puerta","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","resultado":"PENDIENTE-APROBACION","hallazgos":0,"etapa":"E1","bloqueantes":0,"puerta":"arquitectura"}
+{"fecha":"2026-11-11T05:08:24-05:00","evento":"aprobacion","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","puerta":"arquitectura","etapa":"E1"}
+{"fecha":"2026-11-11T05:08:28-05:00","evento":"aprobacion-interfaz","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","puerta":"arquitectura","etapa":"E1"}
+{"fecha":"2026-11-11T05:08:42-05:00","evento":"puerta","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","resultado":"RECHAZADA","hallazgos":4,"etapa":"E1","bloqueantes":4,"puerta":"propuesta"}
+{"fecha":"2026-11-11T05:08:46-05:00","evento":"agente-lanzado","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","agente":"productor","detalle":"propuesta","etapa":"E1","puerta":"propuesta"}
+{"fecha":"2026-11-11T05:10:43-05:00","evento":"puerta","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","resultado":"PENDIENTE-REVISION","hallazgos":0,"etapa":"E1","bloqueantes":0,"puerta":"propuesta"}
+{"fecha":"2026-11-11T05:10:46-05:00","evento":"agente-lanzado","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","agente":"revisor","detalle":"revisa","etapa":"E1","puerta":"propuesta"}
+{"fecha":"2026-11-11T05:12:03-05:00","evento":"puerta","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","resultado":"PENDIENTE-APROBACION","hallazgos":0,"etapa":"E1","bloqueantes":0,"puerta":"propuesta"}
+{"fecha":"2026-11-11T05:17:58-05:00","evento":"cambios-pedidos","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","puerta":"propuesta","etapa":"E1"}
+{"fecha":"2026-11-11T05:18:00-05:00","evento":"respuesta-recibida","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","detalle":"cambios","etapa":"E1"}
+{"fecha":"2026-11-11T05:18:03-05:00","evento":"agente-lanzado","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","agente":"productor","detalle":"propuesta-corrige","etapa":"E1","puerta":"propuesta"}
+{"fecha":"2026-11-11T05:20:24-05:00","evento":"puerta","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","resultado":"PENDIENTE-REVISION","hallazgos":0,"etapa":"E1","bloqueantes":0,"puerta":"propuesta"}
+{"fecha":"2026-11-11T05:20:41-05:00","evento":"puerta","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","resultado":"PENDIENTE-REVISION","hallazgos":0,"etapa":"E1","bloqueantes":0,"puerta":"propuesta"}
+{"fecha":"2026-11-11T05:20:43-05:00","evento":"agente-lanzado","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","agente":"revisor","detalle":"revisa","etapa":"E1","puerta":"propuesta"}
+{"fecha":"2026-11-11T05:23:00-05:00","evento":"puerta","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","resultado":"PENDIENTE-APROBACION","hallazgos":0,"etapa":"E1","bloqueantes":0,"puerta":"propuesta"}
+{"fecha":"2026-11-11T05:27:16-05:00","evento":"tablero","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","detalle":"tablero #8"}
+{"fecha":"2026-11-11T05:28:06-05:00","evento":"puerta","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","resultado":"PENDIENTE-APROBACION","hallazgos":0,"etapa":"E1","bloqueantes":0,"puerta":"propuesta"}
+{"fecha":"2026-11-11T05:28:08-05:00","evento":"aprobacion","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","puerta":"propuesta","etapa":"E1"}
+{"fecha":"2026-11-11T05:28:12-05:00","evento":"aprobacion-interfaz","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","puerta":"propuesta","etapa":"E1"}
+{"fecha":"2026-11-11T05:28:21-05:00","evento":"rama","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","detalle":"etapa/E1-arquitectura-inicial-de-la-interfaz","etapa":"E1"}
+{"fecha":"2026-11-11T05:28:22-05:00","evento":"agente-lanzado","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","agente":"productor","detalle":"implementa","etapa":"E1","puerta":"implementacion"}
+{"fecha":"2026-11-11T05:29:21-05:00","evento":"espera-respuesta","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","detalle":"dudas","etapa":"E1"}
+{"fecha":"2026-11-11T05:30:02-05:00","evento":"etapa-nueva","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","detalle":"desde el plan","titulo":"Proyecto base y verificación de calidad","etapa":"E2","arquitectura":false}
+{"fecha":"2026-11-11T05:30:08-05:00","evento":"etapa-nueva","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","detalle":"desde el plan","titulo":"Tema visual, shell y componentes compartidos de interfaz","etapa":"E3","arquitectura":false}
+{"fecha":"2026-11-11T05:30:15-05:00","evento":"etapa-nueva","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","detalle":"desde el plan","titulo":"Autenticación con Keycloak","etapa":"E4","arquitectura":false}
+{"fecha":"2026-11-11T05:30:21-05:00","evento":"etapa-nueva","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","detalle":"desde el plan","titulo":"Acceso a datos común","etapa":"E5","arquitectura":false}
+{"fecha":"2026-11-11T05:30:28-05:00","evento":"etapa-nueva","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","detalle":"desde el plan","titulo":"Diccionario semántico: consulta de tarjetas","etapa":"E6","arquitectura":false}
+{"fecha":"2026-11-11T05:30:34-05:00","evento":"etapa-nueva","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","detalle":"desde el plan","titulo":"Diccionario semántico: alta, edición, aprobación y desactivación","etapa":"E7","arquitectura":false}
+{"fecha":"2026-11-11T05:30:41-05:00","evento":"etapa-nueva","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","detalle":"desde el plan","titulo":"Reglas de negocio (con datos simulados)","etapa":"E8","arquitectura":false}
+{"fecha":"2026-11-11T05:30:47-05:00","evento":"etapa-nueva","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","detalle":"desde el plan","titulo":"Chat de pruebas de peticiones","etapa":"E9","arquitectura":false}
+{"fecha":"2026-11-11T05:30:59-05:00","evento":"plan-aplicado","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","detalle":"8 etapas, 4 en espera"}
+{"fecha":"2026-11-11T05:38:41-05:00","evento":"respuesta-interfaz","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","etapa":"E1"}
+{"fecha":"2026-11-11T05:39:00-05:00","evento":"respuesta-recibida","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","detalle":"dudas","etapa":"E1"}
+{"fecha":"2026-11-11T05:39:02-05:00","evento":"github-error","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","detalle":"gh issue falló: failed to update https://github.com/Raven8088/Nexora-UI/issues/2: GraphQL: API rate limit already exceeded for user ID 76747987. failed to update 1 issue","etapa":"E1"}
+{"fecha":"2026-11-11T05:39:03-05:00","evento":"agente-lanzado","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","agente":"productor","detalle":"implementa","etapa":"E1","puerta":"implementacion"}
+{"fecha":"2026-11-11T05:41:41-05:00","evento":"puerta","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","resultado":"APROBADA","hallazgos":0,"etapa":"E1","bloqueantes":0,"puerta":"implementacion"}
+{"fecha":"2026-11-11T05:41:41-05:00","evento":"github-error","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","detalle":"gh issue falló: GraphQL: API rate limit already exceeded for user ID 76747987.","etapa":"E1"}
+{"fecha":"2026-11-11T05:41:42-05:00","evento":"pruebas","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","fallidas":0,"etapa":"E1","ejecutadas":0}
+{"fecha":"2026-11-11T05:41:42-05:00","evento":"puerta","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","resultado":"RECHAZADA","hallazgos":1,"etapa":"E1","bloqueantes":1,"puerta":"entrega"}
+{"fecha":"2026-11-11T05:41:42-05:00","evento":"github-error","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","detalle":"gh issue falló: GraphQL: API rate limit already exceeded for user ID 76747987.","etapa":"E1"}
+{"fecha":"2026-11-11T05:41:42-05:00","evento":"espera-respuesta","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","detalle":"ficha","etapa":"E1"}
+{"fecha":"2026-11-11T05:41:43-05:00","evento":"github-error","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","detalle":"gh issue falló: GraphQL: API rate limit already exceeded for user ID 76747987.","etapa":"E1"}
+{"fecha":"2026-11-11T11:46:07-05:00","evento":"config-cambiada","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","modo":"estricto","puertas":["arquitectura","propuesta","implementacion","entrega"],"reglasDesactivadas":[]}
+{"fecha":"2026-11-11T11:46:16-05:00","evento":"respuesta-interfaz","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","etapa":"E1"}
+{"fecha":"2026-11-11T11:46:28-05:00","evento":"respuesta-recibida","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","detalle":"ficha","etapa":"E1"}
+{"fecha":"2026-11-11T11:46:31-05:00","evento":"puerta","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","resultado":"PENDIENTE-REVISION","hallazgos":0,"etapa":"E1","bloqueantes":0,"puerta":"entrega"}
+{"fecha":"2026-11-11T11:46:35-05:00","evento":"agente-lanzado","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","agente":"revisor","detalle":"revisa","etapa":"E1","puerta":"entrega"}
+{"fecha":"2026-11-11T11:48:49-05:00","evento":"puerta","equipo":"DESKTOP-AJU2OEK","usuario":"Raven","resultado":"PENDIENTE-APROBACION","hallazgos":0,"etapa":"E1","bloqueantes":0,"puerta":"entrega"}
