@@ -184,6 +184,28 @@ class SemanticProxyTest {
     }
 
     @Test
+    void f2TheConceptProposalsAndConfirmationAreForwardedButNeverTheRelationContext() throws Exception {
+        String ds = "data-sources/" + TestApp.DEMO_SOURCE;
+        assertThat(SemanticRoutes.match("POST", ds + "/concept-proposals")).isPresent();
+        assertThat(SemanticRoutes.match("POST", ds + "/concept-proposals/confirm")).isPresent();
+        // The closed list with physical table names is only for Intelligence.
+        assertThat(SemanticRoutes.match("GET", ds + "/relation-context")).isEmpty();
+        assertThat(SemanticRoutes.match("GET", ds + "/concept-proposals")).isEmpty();
+        assertThat(SemanticRoutes.match("POST", ds + "/concept-proposals/approve")).isEmpty();
+        semantic.answer(201, Map.of("Content-Type", "application/json"), "{\"created\":true}".getBytes());
+        String body = "{\"match\":{},\"relationId\":\"" + DEF + "\"}";
+        MvcResult saved = mvc.perform(post(base() + "/concept-proposals/confirm").with(user("editor"))
+                .with(csrf()).contentType("application/json").content(body)).andReturn();
+        assertThat(saved.getResponse().getStatus()).isEqualTo(201);
+        FakeUpstream.Received sent = semantic.received().getFirst();
+        assertThat(sent.pathAndQuery()).isEqualTo("/api/v1/" + ds + "/concept-proposals/confirm");
+        assertThat(sent.header("Authorization")).isEqualTo("Bearer " + TestApp.TOKENS.get("editor"));
+        assertThat(mvc.perform(get(base() + "/relation-context").with(user("editor"))).andReturn().getResponse()
+                .getStatus()).isEqualTo(404);
+        assertThat(semantic.received()).hasSize(1);
+    }
+
+    @Test
     void dBAcceptingASuggestionFromTheConsoleIsAlwaysADraft() throws Exception {
         semantic.answer(200, Map.of("Content-Type", "application/json"), "{}".getBytes())
                 .answer(200, Map.of("Content-Type", "application/json"), "{}".getBytes());

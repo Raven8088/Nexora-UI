@@ -3,6 +3,18 @@
 Resultados **reales** obtenidos el 2026-11-11 en el entorno de trabajo de Claude (Linux, Node 22, Java 21). No son
 pruebas contra los servicios reales ni contra Wellnode.
 
+## 8.000 Creación asistida de conceptos (F2), 2026-11-17
+
+Entorno de Claude, datos sintéticos; **no** son pruebas contra Semantic, Intelligence ni el modelo reales.
+
+| Comprobación | Antes | Después |
+|---|---|---|
+| `tsc --noEmit` | 0 errores | **0 errores** |
+| `vitest run` | 15 archivos, 84 pruebas | **16 archivos, 89 pruebas, 89 superadas** (`features/concepts/ConceptAssistPage.test.tsx`, 5) |
+| `vite build` | correcto | **correcto** |
+| BFF, JUnit | 38/38 | **40/40** (`KnowledgeRequestProxyTest` +1, `SemanticProxyTest` +1: `relation-context` no accesible) |
+| Accesibilidad (axe-core 4.10.2, claro y oscuro) | — | **14/14** pantallas nuevas sin infracciones (corregidos el contraste de una insignia y de tres avisos); **14/14** de F1 y **26/26** del diccionario siguen sin infracciones |
+
 ## 8.00 Creación asistida (F1), 2026-11-17
 
 Resultados reales en el entorno de Claude con datos sintéticos (D11); **no** son pruebas contra Semantic, Intelligence

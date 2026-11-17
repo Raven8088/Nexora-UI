@@ -64,6 +64,10 @@ public final class SemanticRoutes {
             // (knowledge-context, with physical column names) is NOT routed: only Intelligence reads it.
             route("POST", DS + "/knowledge-proposals"),
             route("POST", DS + "/knowledge-proposals/confirm"),
+            // F2 (D-F2-3): proposals and confirmation of a NEW concept; relation-context (physical names of the
+            // exposed tables) is NOT routed: only Intelligence reads it.
+            route("POST", DS + "/concept-proposals"),
+            route("POST", DS + "/concept-proposals/confirm"),
             // audit history (tenant-wide; Semantic filters by the token's tenant)
             route("GET", "audit-events"));
 

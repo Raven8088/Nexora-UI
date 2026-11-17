@@ -11,6 +11,7 @@ contra los servicios reales).
 | `GET /bff/session` | — (identidad, permisos, fuentes) | sesión |
 | `POST /bff/logout` | invalida la sesión; devuelve `logoutUrl` (end_session de Keycloak) | sesión + CSRF |
 | `POST /bff/api/report-requests` | Intelligence `POST /api/v1/report-requests` | chat |
+| `POST /bff/api/knowledge-requests/concept-candidates` (F2) | Intelligence `POST /api/v1/knowledge-requests/concept-candidates` (mismo cuerpo, token de la persona; 404 si F2 está desactivado) | proposalWrite + fuente configurada del tenant (D7) |
 | `POST /bff/api/knowledge-requests` (F1) | Intelligence `POST /api/v1/knowledge-requests` (cuerpo `{request, language, dataSource}` sin cambios, token de la persona) | proposalWrite + fuente configurada del tenant (D7) |
 | `GET/POST /bff/api/semantic/data-sources/{ds}/definitions` | Semantic, igual | catalogRead (escritura: Semantic decide) |
 | `GET/PUT …/definitions/{id}` | Semantic, igual (`If-Match`) | catalogRead |
@@ -27,11 +28,13 @@ contra los servicios reales).
 | `POST …/suggestions/{id}/reject` / `reopen` | Semantic (`If-Match`) | catalogRead |
 | `POST …/knowledge-proposals` (F1) | Semantic (solo lectura: qué existe, qué falta, qué preguntar) | catalogRead (Semantic exige `semantic:proposal:write` y persona) |
 | `POST …/knowledge-proposals/confirm` (F1) | Semantic: guarda **una** propuesta como `DRAFT` (nunca aprueba) | catalogRead (Semantic exige `semantic:proposal:write` y persona) |
+| `POST …/concept-proposals` (F2) | Semantic (solo lectura: lo ya conocido y los candidatos, hechos verificados aparte de inferencias) | catalogRead (Semantic exige `semantic:proposal:write` y persona) |
+| `POST …/concept-proposals/confirm` (F2) | Semantic: guarda el concepto elegido como `DRAFT` | catalogRead (ídem) |
 | `GET /bff/api/semantic/audit-events?targetType=SEMANTIC_DEFINITION\|SEMANTIC_RELATIONSHIP\|SEMANTIC_SUGGESTION&targetId=…` | Semantic | catalogRead (Semantic exige `AUDIT_READ`; la consola solo lo pide con ese permiso, D-C) |
 
 No existe ninguna ruta `DELETE` (D6). Cualquier otra ruta responde `404 bff_route_not_allowed`; siguen bloqueadas,
 entre otras, `…/relationships/{id}/contract` (contrato para S4), `suggestion-runs`, `suggestion-triggers` (B5
-pospuesto, D-D), `snapshots`, exposición, fuentes, tenants y planes, y `…/knowledge-context` (F1: el catálogo cerrado con
+pospuesto, D-D), `snapshots`, exposición, fuentes, tenants y planes, `…/relation-context` (F2: nombres físicos de las tablas habilitadas, solo para Intelligence) y `…/knowledge-context` (F1: el catálogo cerrado con
 nombres físicos de columnas es solo para Intelligence).
 
 `GET /bff/session` incluye `subject` (B1): el `sub` del token, el mismo identificador que Semantic registra como
@@ -113,3 +116,12 @@ autoaprobación, «Tú» en los historiales); nunca para autorizar y nunca se mu
 La consola guarda la intención solo en memoria mientras dura el flujo y la reenvía sin cambios; Semantic la valida de
 nuevo (KI-R1, KI-R2, fuente) y decide siempre sobre el catálogo actual.
 
+## Creación asistida de conceptos (F2)
+
+1. `POST /bff/api/knowledge-requests/concept-candidates` → `{"match": nexora-concept-match/1}` (palabras literales y como
+   máximo 5 relaciones de la lista cerrada; siempre inferencias). Mismos problemas que F1; 404 si F2 no está activado.
+2. `POST …/concept-proposals` `{match}` → `status` (`CANDIDATES`, `ALREADY_KNOWN`, `NOT_FOUND`, `NOT_UNDERSTOOD`),
+   `named` (conceptos que las palabras nombran), `candidates` (`relationId`, `proposalId`, `known`, `inferred`,
+   `verified`, `technicalName` solo para quien puede aprobar), `omitted`, `notices`.
+3. `POST …/concept-proposals/confirm` `{match, relationId, proposal, name, description, acknowledgedInference,
+   acknowledgedNotKnown}` → 201 `{suggestion, definition, created}`; siempre `DRAFT`.

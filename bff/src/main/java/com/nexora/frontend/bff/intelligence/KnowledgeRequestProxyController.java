@@ -50,8 +50,28 @@ public class KnowledgeRequestProxyController {
         this.properties = properties;
     }
 
+    /** F2: the interpretation of a request for a NEW concept (same checks; nothing is created by this call). */
+    public static final String CONCEPTS_PATH = PATH + "/concept-candidates";
+
     @PostMapping(PATH)
     public ResponseEntity<byte[]> request(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        return forward(request, response, "/api/v1/knowledge-requests", "knowledge request");
+    }
+
+    /**
+     * F2 (D-F2-3): {@code POST /bff/api/knowledge-requests/concept-candidates} → Intelligence
+     * {@code POST /api/v1/knowledge-requests/concept-candidates}, with exactly the same checks as F1 (proposalWrite,
+     * configured source of the tenant, the person's own token). The answer ({@code nexora-concept-match/1} or a problem,
+     * 404 when F2 is disabled in Intelligence) reaches the console unchanged.
+     */
+    @PostMapping(CONCEPTS_PATH)
+    public ResponseEntity<byte[]> concepts(HttpServletRequest request, HttpServletResponse response)
+            throws IOException {
+        return forward(request, response, "/api/v1/knowledge-requests/concept-candidates", "concept request");
+    }
+
+    private ResponseEntity<byte[]> forward(HttpServletRequest request, HttpServletResponse response, String path,
+                                           String label) throws IOException {
         Optional<CurrentUser.Context> user = users.of(request, response);
         if (user.isEmpty()) {
             return BffProblem.sessionRequired();
@@ -75,14 +95,14 @@ public class KnowledgeRequestProxyController {
         UpstreamClient.Answer answer;
         try {
             answer = upstream.exchange(new UpstreamClient.Call("POST",
-                    URI.create(base() + "/api/v1/knowledge-requests"), headers, body.get(),
+                    URI.create(base() + path), headers, body.get(),
                     properties.upstream().intelligenceReadTimeout(), properties.upstream().maxResponseBytes()));
         } catch (UpstreamClient.Failure f) {
-            log.warn("knowledge request failed: failure={}", f.kind());
+            log.warn("{} failed: failure={}", label, f.kind());
             return Forwarding.failure(f, "Nexora Intelligence");
         }
         long elapsed = (System.nanoTime() - started) / 1_000_000;
-        log.info("knowledge request: status={} correlationId={} elapsedMs={}", answer.status(),
+        log.info("{}: status={} correlationId={} elapsedMs={}", label, answer.status(),
                 answer.header("X-Request-Id"), elapsed);
         return Forwarding.toBrowser(answer, answer.body(), user.get().permissions().diagnostics(), Optional.empty(),
                 "", Map.of());

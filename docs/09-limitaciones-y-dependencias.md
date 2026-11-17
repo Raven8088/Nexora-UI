@@ -18,6 +18,7 @@
 | DEP-12 | Autorizar la creación del cliente `nexora-console` en Keycloak (doc 03) y su secreto en `nexora-deploy/secrets/` | Usuario | Login |
 | DEP-13 | B6: desplegar la nueva imagen `frontend` y validar la administración del diccionario contra Semantic real (doc 08 §8.0) | Usuario | Declarar la integración funcional |
 | DEP-14 | F1: desplegar Semantic (V14), Intelligence y la consola, y validar «Crear con ayuda» con Wellnode | Usuario | Declarar F1 validada |
+| DEP-15 | F2: activar `NEXORA_SEMANTIC_KNOWLEDGE_CONCEPTS_ENABLED` e `NEXORA_INTELLIGENCE_KNOWLEDGE_CONCEPTS_ENABLED`, desplegar y validar «Enseñar un concepto nuevo» con Wellnode | Usuario | Declarar F2 validada |
 
 ## 9.2 Limitaciones conocidas
 
@@ -35,6 +36,10 @@
 - **Candidatas de relación**: se calculan en cada consulta (como máximo 100); que no aparezca una no significa que no
   exista la relación.
 - **Generación de sugerencias** (ejecuciones del generador): fuera de la consola (D-D, B5 pospuesto).
+- **Enseñar un concepto nuevo (F2)**: solo ofrece tablas y vistas habilitadas en la política de exposición (lo demás ni
+  se menciona); como máximo 5 opciones; un concepto por tabla; sin subtipos con filtro; las opciones se describen sin
+  nombres físicos, así que dos tablas parecidas pueden costar de distinguir (el nombre técnico plegado es solo para
+  quien aprueba); la calidad de la elección depende del modelo local y siempre se confirma.
 - **Crear con ayuda (F1)**: solo crea conteos y formas de agrupar sobre conceptos **aprobados**; las sumas y promedios
   nuevos, los conceptos nuevos y las relaciones siguen en el modo avanzado. Solo en español. La calidad de la
   interpretación depende del modelo local; todo lo que el modelo relaciona se confirma, y una columna elegida por el

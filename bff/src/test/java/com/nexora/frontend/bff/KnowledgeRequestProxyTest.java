@@ -92,4 +92,29 @@ class KnowledgeRequestProxyTest {
         assertThat(r.getResponse().getStatus()).isEqualTo(422);
         assertThat(r.getResponse().getContentAsString(StandardCharsets.UTF_8)).contains("interpretation_failed");
     }
+
+    @Test
+    void f2ConceptCandidatesFollowExactlyTheSameChecks() throws Exception {
+        String match = "{\"match\":{\"format\":\"nexora-concept-match/1\"},\"correlationId\":\"c2\"}";
+        intelligence.answer(200, Map.of("Content-Type", "application/json", "X-Request-Id", "c2"),
+                match.getBytes(StandardCharsets.UTF_8));
+        String request = REQUEST;
+        MvcResult r = mvc.perform(post("/bff/api/knowledge-requests/concept-candidates").with(user("editor"))
+                .with(csrf()).contentType("application/json").header("Cookie", "NEXORA_CONSOLE_SESSION=secreto")
+                .content(request.getBytes(StandardCharsets.UTF_8))).andReturn();
+        assertThat(r.getResponse().getStatus()).isEqualTo(200);
+        assertThat(r.getResponse().getContentAsString(StandardCharsets.UTF_8)).isEqualTo(match);
+        FakeUpstream.Received sent = intelligence.received().getFirst();
+        assertThat(sent.pathAndQuery()).isEqualTo("/api/v1/knowledge-requests/concept-candidates");
+        assertThat(sent.header("Authorization")).isEqualTo("Bearer " + TestApp.TOKENS.get("editor"));
+        assertThat(sent.header("Cookie")).isNull();
+        // A viewer or another source never reaches Intelligence.
+        assertThat(mvc.perform(post("/bff/api/knowledge-requests/concept-candidates").with(user("viewer"))
+                .with(csrf()).contentType("application/json").content(request)).andReturn().getResponse()
+                .getStatus()).isEqualTo(403);
+        assertThat(mvc.perform(post("/bff/api/knowledge-requests/concept-candidates").with(user("editor"))
+                .with(csrf()).contentType("application/json").content(request.replace("\"demo\"", "\"other\"")))
+                .andReturn().getResponse().getStatus()).isEqualTo(403);
+        assertThat(intelligence.received()).hasSize(1);
+    }
 }

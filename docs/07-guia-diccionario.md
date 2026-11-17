@@ -26,6 +26,22 @@ No se muestran tablas, columnas ni claves: la clave interna la genera Semantic. 
 conceptos y relaciones nuevos, siguen en el **modo avanzado** (formularios de abajo). La petición no se guarda ni se
 registra; solo se guarda lo que se confirma.
 
+## Enseñar un concepto nuevo (F2)
+
+**Diccionario → Crear con ayuda → Enseñar un concepto nuevo** (o el enlace que aparece cuando Nexora no conoce lo que
+nombras). Escribe qué tipo de cosa quieres que Nexora conozca («Quiero que Nexora conozca los equipos de nuestra
+planta») y pulsa **Buscar**:
+
+- Si ya conoce algo con ese nombre, te lo muestra; marca «No es esto» si te refieres a otra cosa.
+- Si no, te enseña hasta 5 **opciones** entre los datos habilitados de la fuente. Cada una separa lo **Comprobado** (por
+  ejemplo, «Cada «Sensor» apunta a uno de estos», «Datos habilitados: 2 números, 1 texto») de la **Suposición** de
+  Nexora. Quien puede aprobar ve además, plegado, el nombre técnico.
+- Elige una opción (o **Ninguna de estas**: no se crea nada), revisa el nombre y la descripción propuestos y confirma
+  que la opción corresponde a tus palabras. Se guarda como **borrador**; una persona autorizada lo aprueba después.
+
+Solo aparecen datos habilitados en la política de exposición; nunca se leen valores. La función puede estar desactivada
+en la instalación (entonces la página lo dice).
+
 ## Definiciones
 
 - **Vista tabla o tarjetas**, búsqueda por nombre/clave/descripción (sin distinguir mayúsculas ni tildes), filtros por

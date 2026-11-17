@@ -10,6 +10,7 @@ import { DictionaryPage } from '@/features/dictionary/DictionaryPage';
 import { HomePage } from '@/features/home/HomePage';
 import { RelationshipsPage } from '@/features/relationships/RelationshipsPage';
 import { AssistedPage } from '@/features/assisted/AssistedPage';
+import { ConceptAssistPage } from '@/features/concepts/ConceptAssistPage';
 import { SessionReportsPage } from '@/features/reports/SessionReportsPage';
 import { SettingsPage } from '@/features/settings/SettingsPage';
 import { SuggestionsPage } from '@/features/suggestions/SuggestionsPage';
@@ -31,6 +32,7 @@ function Routed() {
         <Route path="/diccionario" element={<Guard allowed={permissions.catalogRead}><DictionaryPage /></Guard>} />
         <Route path="/diccionario/relaciones" element={<Guard allowed={permissions.catalogRead}><RelationshipsPage /></Guard>} />
         <Route path="/diccionario/crear-con-ayuda" element={<Guard allowed={permissions.proposalWrite}><AssistedPage /></Guard>} />
+        <Route path="/diccionario/nuevo-concepto" element={<Guard allowed={permissions.proposalWrite}><ConceptAssistPage /></Guard>} />
         <Route path="/sugerencias" element={<SuggestionsPage />} />
         <Route path="/configuracion" element={<SettingsPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />

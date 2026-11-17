@@ -154,6 +154,9 @@ export function AssistedPage() {
             <Button variant="subtle" component={Link} to="/diccionario" leftSection={<IconArrowLeft size={16} />}>
               {t('assisted.advanced')}
             </Button>
+            <Button variant="subtle" component={Link} to="/diccionario/nuevo-concepto">
+              {t('concepts.entry')}
+            </Button>
           </Group>
           <Text size="xs" className="nexora-secondary-text">{t('assisted.privacyNote')}</Text>
         </Stack>
@@ -227,6 +230,16 @@ export function AssistedPage() {
           {result.status === 'NOT_UNDERSTOOD' && (
             <Alert color="yellow" title={t('assisted.notUnderstoodTitle')}>{t('assisted.notUnderstoodText')}</Alert>
           )}
+          {/* F2: the entity is not known yet (or the person said none of the options is it): teach a new concept. */}
+          {(result.status === 'NOT_UNDERSTOOD' || result.notices.includes('ENTITY_NOT_COVERED') || result.notices.includes('NO_APPROVED_CONCEPT')) &&
+            intent?.interpretation.entity !== null && (
+              <Group gap="xs" data-testid="assisted-new-concept">
+                <Text size="sm">{t('concepts.entryHint')}</Text>
+                <Button size="xs" variant="default" component={Link} to={`/diccionario/nuevo-concepto?peticion=${encodeURIComponent(request.trim())}`}>
+                  {t('concepts.entry')}
+                </Button>
+              </Group>
+            )}
         </Stack>
       )}
     </Stack>
