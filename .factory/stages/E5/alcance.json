@@ -1,9 +1,0 @@
-{
-    "permitido":  [
-                      "src/app/shared/data/**",
-                      "docs/**"
-                  ],
-    "excluido":  [
-
-                 ]
-}

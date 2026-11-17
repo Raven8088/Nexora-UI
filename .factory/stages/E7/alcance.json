@@ -1,9 +1,0 @@
-{
-    "permitido":  [
-                      "src/app/features/dictionary/**",
-                      "docs/**"
-                  ],
-    "excluido":  [
-
-                 ]
-}
