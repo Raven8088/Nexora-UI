@@ -115,6 +115,11 @@ function SuggestionDrawer({ id, dataSourceId, onClose }: { id: string | undefine
               <List size="sm">{(s.exposure ?? []).map((x) => <List.Item key={x.objectId}>{x.naturalKey ?? x.objectId}: {x.state}</List.Item>)}</List>
             </Stack>
           )}
+          {s.createdVia === 'ASSISTED' && (
+            <Text size="sm" data-testid="assisted-origin">
+              {t('suggestions.assistedOrigin', { actor: actor(s.openedBy?.id) })}
+            </Text>
+          )}
           {s.decision && (
             <Stack gap={4}>
               <Text fw={600} size="sm">{t('suggestions.decision')}</Text>

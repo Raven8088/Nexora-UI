@@ -11,6 +11,7 @@ contra los servicios reales).
 | `GET /bff/session` | — (identidad, permisos, fuentes) | sesión |
 | `POST /bff/logout` | invalida la sesión; devuelve `logoutUrl` (end_session de Keycloak) | sesión + CSRF |
 | `POST /bff/api/report-requests` | Intelligence `POST /api/v1/report-requests` | chat |
+| `POST /bff/api/knowledge-requests` (F1) | Intelligence `POST /api/v1/knowledge-requests` (cuerpo `{request, language, dataSource}` sin cambios, token de la persona) | proposalWrite + fuente configurada del tenant (D7) |
 | `GET/POST /bff/api/semantic/data-sources/{ds}/definitions` | Semantic, igual | catalogRead (escritura: Semantic decide) |
 | `GET/PUT …/definitions/{id}` | Semantic, igual (`If-Match`) | catalogRead |
 | `POST …/definitions/{id}/approve` | Semantic (`If-Match`) | catalogRead |
@@ -24,11 +25,14 @@ contra los servicios reales).
 | `GET …/suggestions`, `…/{id}`, `…/{id}/history` | Semantic | catalogRead |
 | `POST …/suggestions/{id}/accept-definition` · `…/accept` (B3) | Semantic (`If-Match`); **el BFF exige `"result":"DRAFT"`** (D-B): cualquier otro cuerpo → `422 bff_draft_required` sin llegar a Semantic | catalogRead |
 | `POST …/suggestions/{id}/reject` / `reopen` | Semantic (`If-Match`) | catalogRead |
+| `POST …/knowledge-proposals` (F1) | Semantic (solo lectura: qué existe, qué falta, qué preguntar) | catalogRead (Semantic exige `semantic:proposal:write` y persona) |
+| `POST …/knowledge-proposals/confirm` (F1) | Semantic: guarda **una** propuesta como `DRAFT` (nunca aprueba) | catalogRead (Semantic exige `semantic:proposal:write` y persona) |
 | `GET /bff/api/semantic/audit-events?targetType=SEMANTIC_DEFINITION\|SEMANTIC_RELATIONSHIP\|SEMANTIC_SUGGESTION&targetId=…` | Semantic | catalogRead (Semantic exige `AUDIT_READ`; la consola solo lo pide con ese permiso, D-C) |
 
 No existe ninguna ruta `DELETE` (D6). Cualquier otra ruta responde `404 bff_route_not_allowed`; siguen bloqueadas,
 entre otras, `…/relationships/{id}/contract` (contrato para S4), `suggestion-runs`, `suggestion-triggers` (B5
-pospuesto, D-D), `snapshots`, exposición, fuentes, tenants y planes.
+pospuesto, D-D), `snapshots`, exposición, fuentes, tenants y planes, y `…/knowledge-context` (F1: el catálogo cerrado con
+nombres físicos de columnas es solo para Intelligence).
 
 `GET /bff/session` incluye `subject` (B1): el `sub` del token, el mismo identificador que Semantic registra como
 autor, editor, aprobador y actor de auditoría. La consola lo usa solo para reconocer los cambios propios (aviso de
@@ -92,3 +96,20 @@ autoaprobación, «Tú» en los historiales); nunca para autorizar y nunca se mu
   puede aprobar. Cuerpo: `name` (obligatorio salvo FK sin corrección), `description`, `declaredCardinality`,
   `allowedJoinTypes`, `acknowledgedPending`, `correction{targetObjectId, pairs}` (el origen no cambia, DEC-G1C-4).
 - `reject {reason}` (1–2000), `reopen`.
+
+## Creación asistida (F1)
+
+1. `POST /bff/api/knowledge-requests` → Intelligence interpreta la petición contra el catálogo cerrado de Semantic
+   (leído con el token de la persona) y responde `{"intent": nexora-knowledge-intent/1}`. Problemas propios:
+   `interpretation_failed` (422), `interpretation_unavailable` y `knowledge_context_unavailable` (503), `busy` (429),
+   `data_source_not_found` (404), `forbidden` (403).
+2. `POST …/knowledge-proposals` `{intent, answers}` → `status` (`PROPOSAL`, `NEEDS_CLARIFICATION`, `ALREADY_EXISTS`,
+   `UNSUPPORTED`, `NOT_UNDERSTOOD`), `reused`, `clarifications` (con `NONE`), `proposals`, `notices`, `unresolved`.
+   Nunca nombres físicos.
+3. `POST …/knowledge-proposals/confirm` `{intent, answers, proposal, name, description, acknowledgedPending,
+   acknowledgedInterpretation}` → 201 `{suggestion, definition, created}`; la definición es siempre `DRAFT`. 409
+   `assisted_proposal_changed` (cambió o falta una respuesta) y `assisted_proposal_blocked` (una igual se rechazó).
+
+La consola guarda la intención solo en memoria mientras dura el flujo y la reenvía sin cambios; Semantic la valida de
+nuevo (KI-R1, KI-R2, fuente) y decide siempre sobre el catálogo actual.
+

@@ -157,6 +157,33 @@ class SemanticProxyTest {
     }
 
     @Test
+    void f1TheAssistedProposalsAndConfirmationAreForwardedButNeverTheModelsContext() throws Exception {
+        String ds = "data-sources/" + TestApp.DEMO_SOURCE;
+        assertThat(SemanticRoutes.match("POST", ds + "/knowledge-proposals")).isPresent();
+        assertThat(SemanticRoutes.match("POST", ds + "/knowledge-proposals/confirm")).isPresent();
+        // The closed catalog with physical column names is only for Intelligence.
+        assertThat(SemanticRoutes.match("GET", ds + "/knowledge-context")).isEmpty();
+        assertThat(SemanticRoutes.match("GET", ds + "/knowledge-proposals")).isEmpty();
+        assertThat(SemanticRoutes.match("PUT", ds + "/knowledge-proposals/confirm")).isEmpty();
+        assertThat(SemanticRoutes.match("POST", ds + "/knowledge-proposals/approve")).isEmpty();
+
+        semantic.answer(201, Map.of("Content-Type", "application/json"), "{\"created\":true}".getBytes());
+        String body = "{\"intent\":{},\"proposal\":\"" + "a".repeat(64) + "\"}";
+        MvcResult saved = mvc.perform(post(base() + "/knowledge-proposals/confirm").with(user("editor"))
+                .with(csrf()).contentType("application/json").content(body)).andReturn();
+        assertThat(saved.getResponse().getStatus()).isEqualTo(201);
+        FakeUpstream.Received sent = semantic.received().getFirst();
+        assertThat(sent.pathAndQuery()).isEqualTo("/api/v1/" + ds + "/knowledge-proposals/confirm");
+        assertThat(sent.header("Authorization")).isEqualTo("Bearer " + TestApp.TOKENS.get("editor"));
+        assertThat(new String(sent.body(), java.nio.charset.StandardCharsets.UTF_8)).isEqualTo(body);
+        // D7: another tenant's source is refused before Semantic.
+        assertThat(mvc.perform(post("/bff/api/semantic/data-sources/" + TestApp.FOREIGN + "/knowledge-proposals")
+                .with(user("editor")).with(csrf()).contentType("application/json").content("{}")).andReturn()
+                .getResponse().getStatus()).isEqualTo(403);
+        assertThat(semantic.received()).hasSize(1);
+    }
+
+    @Test
     void dBAcceptingASuggestionFromTheConsoleIsAlwaysADraft() throws Exception {
         semantic.answer(200, Map.of("Content-Type", "application/json"), "{}".getBytes())
                 .answer(200, Map.of("Content-Type", "application/json"), "{}".getBytes());

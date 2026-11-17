@@ -1,5 +1,5 @@
 import { ActionIcon, Alert, Button, Card, Group, Pagination, SegmentedControl, Select, SimpleGrid, Stack, Table, Text, TextInput, UnstyledButton } from '@mantine/core';
-import { IconArrowsSort, IconLayoutGrid, IconPlus, IconSearch, IconSortAscending, IconSortDescending, IconTable } from '@tabler/icons-react';
+import { IconArrowsSort, IconLayoutGrid, IconPlus, IconSparkles, IconSearch, IconSortAscending, IconSortDescending, IconTable } from '@tabler/icons-react';
 import {
   createColumnHelper,
   flexRender,
@@ -11,7 +11,7 @@ import {
 } from '@tanstack/react-table';
 import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { DEFINITION_KINDS, DEFINITION_STATUSES, type Definition, type DefinitionKind, type DefinitionStatus } from '@/api/semanticTypes';
 import { useSession } from '@/auth/SessionProvider';
 import { useSource } from '@/context/SourceContext';
@@ -108,9 +108,14 @@ export function DictionaryPage() {
         subtitle={t('dictionary.subtitle')}
         actions={
           permissions.proposalWrite && (
-            <Button leftSection={<IconPlus size={18} />} onClick={() => setForm({ type: 'create' })}>
-              {t('dictionary.new')}
-            </Button>
+            <Group gap="sm">
+              <Button leftSection={<IconSparkles size={18} />} component={Link} to="/diccionario/crear-con-ayuda">
+                {t('dictionary.assisted')}
+              </Button>
+              <Button variant="default" leftSection={<IconPlus size={18} />} onClick={() => setForm({ type: 'create' })}>
+                {t('dictionary.new')}
+              </Button>
+            </Group>
           )
         }
       />

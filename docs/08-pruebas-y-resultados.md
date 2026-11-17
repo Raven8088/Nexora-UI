@@ -3,6 +3,31 @@
 Resultados **reales** obtenidos el 2026-11-11 en el entorno de trabajo de Claude (Linux, Node 22, Java 21). No son
 pruebas contra los servicios reales ni contra Wellnode.
 
+## 8.00 Creación asistida (F1), 2026-11-17
+
+Resultados reales en el entorno de Claude con datos sintéticos (D11); **no** son pruebas contra Semantic, Intelligence
+ni el modelo reales: la validación funcional con Wellnode la coordina el usuario.
+
+| Comprobación | Antes | Después |
+|---|---|---|
+| `tsc --noEmit` | 0 errores | **0 errores** |
+| `vitest run` | 14 archivos, 78 pruebas | **15 archivos, 84 pruebas, 84 superadas** (`features/assisted/AssistedPage.test.tsx`, 6) |
+| `vite build` | correcto | **correcto** |
+| BFF, JUnit (mismas bibliotecas que §8.0) | 34/34 | **38/38** (`KnowledgeRequestProxyTest` 3, `SemanticProxyTest` +1) |
+| Accesibilidad (axe-core 4.10.2, build de producción, claro y oscuro) | 26/26 | **26/26 + 14/14** pantallas nuevas sin infracciones (petición, aclaración, propuestas, guardado y existente, error, entrada en el diccionario, sugerencia asistida); corregido el contraste de dos insignias y dos avisos |
+
+Qué comprueban las pruebas nuevas:
+
+- `AssistedPage.test.tsx`: el caso de aceptación con datos sintéticos (concepto nombrado → reutilizado; «cada …» →
+  pregunta con «Ninguna de estas»; conteo propuesto; nombre y descripción de plantilla; confirmación obligatoria; cuerpo
+  exacto de `confirm`; borrador con enlace; la repetición dice «ya existe»; ninguna clave ni nombre físico en pantalla);
+  una agrupación elegida por el modelo exige la confirmación expresa; errores de interpretación; propuesta bloqueada
+  por un rechazo anterior; entrada solo para quien puede proponer; un `VIEWER` no ve ni la entrada ni la página.
+- `KnowledgeRequestProxyTest`: solo `EDITOR`/`APPROVER`, solo fuentes configuradas del tenant, token de la persona, sin
+  cookies ni cabeceras de reenvío; problemas de Intelligence sin cambios.
+- `SemanticProxyTest`: `knowledge-proposals` y `confirm` se reenvían; `knowledge-context` **no** es accesible desde el
+  navegador.
+
 ## 8.0 Administración del diccionario (B1–B4), 2026-11-17
 
 Resultados reales en el entorno de Claude (Linux, Node 22, Java 21), con datos sintéticos (D11). **No** son pruebas
@@ -103,6 +128,9 @@ contenedores de prueba. Etapas `bff`/ejecución,
 arranque real, healthcheck, redirección y conectividad: pendientes en Windows (`deploy\Test-NexoraFrontend.ps1`).
 
 ## 8.4 No ejecutado
+
+- **F1 con Wellnode** (Semantic, Intelligence y el modelo reales; prueba de aceptación «contar cuántos logs tiene cada
+  pozo»): pendiente del usuario tras desplegar las imágenes. No se declara validada hasta superarla.
 
 - **B6 (administración del diccionario contra Semantic real en Docker)**: pendiente del usuario tras el despliegue.
   No se declara la integración funcional completada hasta superarla.

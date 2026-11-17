@@ -3,6 +3,7 @@ package com.nexora.frontend.bff.support;
 import com.nexora.frontend.bff.auth.LogoutUrls;
 import com.nexora.frontend.bff.auth.SessionController;
 import com.nexora.frontend.bff.config.BffProperties;
+import com.nexora.frontend.bff.intelligence.KnowledgeRequestProxyController;
 import com.nexora.frontend.bff.intelligence.ReportRequestProxyController;
 import com.nexora.frontend.bff.proxy.UpstreamClient;
 import com.nexora.frontend.bff.security.AccessTokens;
@@ -125,6 +126,12 @@ public final class TestApp {
         ReportRequestProxyController reportProxy(CurrentUser users, SourceRegistry sources, UpstreamClient upstream,
                                                  BffProperties properties) {
             return new ReportRequestProxyController(users, sources, upstream, properties);
+        }
+
+        @Bean
+        KnowledgeRequestProxyController knowledgeProxy(CurrentUser users, SourceRegistry sources,
+                                                       UpstreamClient upstream, BffProperties properties) {
+            return new KnowledgeRequestProxyController(users, sources, upstream, properties);
         }
 
         @Bean

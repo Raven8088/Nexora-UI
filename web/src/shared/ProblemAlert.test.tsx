@@ -19,7 +19,7 @@ const SEMANTIC_CODES = [
   'invalid_state_transition', 'self_approval_forbidden', 'non_human_approval_forbidden', 'relationship_invalid',
   'relationship_equivalent_exists', 'metadata_not_imported', 'suggestion_access_denied', 'suggestion_outdated',
   'matching_suggestion_open', 'concept_required', 'concept_selection_required', 'definition_equivalent_exists',
-  'column_sensitive',
+  'column_sensitive', 'assisted_proposal_changed', 'assisted_proposal_blocked',
 ];
 const BFF_CODES = [
   'bff_forbidden', 'bff_route_not_allowed', 'bff_source_not_configured', 'bff_payload_too_large', 'bff_draft_required',

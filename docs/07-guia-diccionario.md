@@ -4,6 +4,28 @@ El diccionario tiene dos secciones, **Definiciones** y **Relaciones**, bajo la m
 sobre la fuente de datos elegida en la cabecera; Semantic decide en cada llamada (permisos, tenant, fuente,
 estados): ocultar un botón nunca es la autorización.
 
+## Crear con ayuda (F1)
+
+**Diccionario → Crear con ayuda** (solo `EDITOR` o `APPROVER`). La persona escribe en lenguaje de negocio lo que
+quiere que Nexora aprenda, por ejemplo «Quiero que Nexora pueda contar cuántos pedidos tiene cada cliente», y pulsa
+**Interpretar**:
+
+1. **Lo que Nexora ya sabe:** los conceptos, métricas y dimensiones aprobados (o en borrador) que se reutilizan, con
+   su nombre de negocio, y las palabras que no supo relacionar.
+2. **Antes de continuar:** cuando algo no está claro (por ejemplo, qué significa «cada cliente»), una pregunta con las
+   opciones del catálogo y siempre **Ninguna de estas**. Lo que Nexora entendió aparece marcado, pero hay que
+   confirmarlo.
+3. **Lo que falta:** una tarjeta por cada métrica (conteo) o forma de agrupar que falta, con su explicación, un
+   **nombre** y una **descripción** propuestos a partir de tus palabras (plantillas fijas; se pueden cambiar) y las
+   confirmaciones necesarias. Si Nexora relacionó tus palabras con un dato sin nombre de negocio, hay que confirmarlo
+   expresamente; un especialista lo revisará antes de aprobar.
+4. **Guardar como borrador:** se guarda en el diccionario como `DRAFT` (nunca se aprueba aquí) y queda enlazado a una
+   sugerencia de Nexora con su evidencia. Si se repite la petición, Nexora dice que ya existe.
+
+No se muestran tablas, columnas ni claves: la clave interna la genera Semantic. Las sumas y los promedios nuevos, y los
+conceptos y relaciones nuevos, siguen en el **modo avanzado** (formularios de abajo). La petición no se guarda ni se
+registra; solo se guarda lo que se confirma.
+
 ## Definiciones
 
 - **Vista tabla o tarjetas**, búsqueda por nombre/clave/descripción (sin distinguir mayúsculas ni tildes), filtros por

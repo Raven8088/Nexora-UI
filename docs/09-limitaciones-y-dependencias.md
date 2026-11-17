@@ -17,6 +17,7 @@
 | DEP-11 | Construir, arrancar y ejecutar `deploy\Test-NexoraFrontend.ps1` en Windows (doc 12 §9–§10) | Usuario | Evidencias de Docker |
 | DEP-12 | Autorizar la creación del cliente `nexora-console` en Keycloak (doc 03) y su secreto en `nexora-deploy/secrets/` | Usuario | Login |
 | DEP-13 | B6: desplegar la nueva imagen `frontend` y validar la administración del diccionario contra Semantic real (doc 08 §8.0) | Usuario | Declarar la integración funcional |
+| DEP-14 | F1: desplegar Semantic (V14), Intelligence y la consola, y validar «Crear con ayuda» con Wellnode | Usuario | Declarar F1 validada |
 
 ## 9.2 Limitaciones conocidas
 
@@ -34,6 +35,12 @@
 - **Candidatas de relación**: se calculan en cada consulta (como máximo 100); que no aparezca una no significa que no
   exista la relación.
 - **Generación de sugerencias** (ejecuciones del generador): fuera de la consola (D-D, B5 pospuesto).
+- **Crear con ayuda (F1)**: solo crea conteos y formas de agrupar sobre conceptos **aprobados**; las sumas y promedios
+  nuevos, los conceptos nuevos y las relaciones siguen en el modo avanzado. Solo en español. La calidad de la
+  interpretación depende del modelo local; todo lo que el modelo relaciona se confirma, y una columna elegida por el
+  modelo se presenta solo por su tipo («una fecha», «un dato de texto»), por lo que la persona de negocio no puede
+  verificarla: debe revisarla quien apruebe. Las descripciones aprobadas con nombres físicos llegan al modelo (no a la
+  pantalla del asistente).
 - **Catálogos muy grandes**: definiciones y relaciones se leen completas (≤ 50 × 200 por lista) y se buscan en el
   navegador; Semantic no ofrece búsqueda de texto.
 - **Dependencias** solo dentro del diccionario de la fuente: los planes/reportes que usan una definición no son

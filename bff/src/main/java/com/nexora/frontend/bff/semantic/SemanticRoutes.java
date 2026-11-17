@@ -12,7 +12,7 @@ import tools.jackson.databind.json.JsonMapper;
 /**
  * The calls to Nexora Semantic the console may make through the BFF: exactly the operations of the dictionary,
  * relationships, suggestions and audit screens (UI-1 contract matrix; relationships added by B3 of the dictionary
- * administration). Anything else (exposure policy, sources, tenants, metadata imports, suggestion runs, report plans,
+ * administration; the assisted creation's proposals and confirmation added by F1). Anything else (exposure policy, sources, tenants, metadata imports, suggestion runs, report plans,
  * resolutions, the relationship contract for S4…) is not reachable from the browser. Paths are relative to
  * Semantic's {@code /api/v1}.
  */
@@ -59,6 +59,11 @@ public final class SemanticRoutes {
             route("POST", DS + "/suggestions/" + UUID_RE + "/accept"),
             route("POST", DS + "/suggestions/" + UUID_RE + "/reject"),
             route("POST", DS + "/suggestions/" + UUID_RE + "/reopen"),
+            // F1, assisted creation: what exists, what is missing and what to ask (reads only), and the confirmation
+            // of one proposal, saved by Semantic as a DRAFT (never approved). The closed catalog for the model
+            // (knowledge-context, with physical column names) is NOT routed: only Intelligence reads it.
+            route("POST", DS + "/knowledge-proposals"),
+            route("POST", DS + "/knowledge-proposals/confirm"),
             // audit history (tenant-wide; Semantic filters by the token's tenant)
             route("GET", "audit-events"));
 
