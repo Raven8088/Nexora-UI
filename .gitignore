@@ -1,0 +1,18 @@
+# dependencies and build output
+web/node_modules/
+web/dist/
+web/test-results/
+web/playwright-report/
+bff/target/
+# local configuration and secrets (never committed)
+.env
+.env.*
+*.local
+bff/config/application-local.yml
+# IDE
+.idea/
+.vscode/
+*.iml
+evidence-frontend-*.txt
+# local backups of replaced files (CLAUDE.md rule)
+_backup/

@@ -1,0 +1,24 @@
+# Whitelist: the image is built only from the sources it needs. Everything else stays out of the build context:
+# node_modules, dist, target, tests, docs, e2e, .env files, secrets and any other local file.
+*
+!web/package.json
+!web/package-lock.json
+!web/index.html
+!web/tsconfig.json
+!web/vite.config.ts
+!web/postcss.config.cjs
+!web/public/
+!web/src/
+web/src/test/
+web/src/**/*.test.ts
+web/src/**/*.test.tsx
+!bff/pom.xml
+!bff/src/main/
+**/.env
+**/.env.*
+**/*.env
+**/*.key
+**/*.pem
+**/*.p12
+**/*.jks
+**/secrets/

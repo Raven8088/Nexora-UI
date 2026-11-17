@@ -1,0 +1,63 @@
+# Nexora front-end BFF. Every value that depends on the installation comes from the environment (see
+# docs/04-configuracion.md). No secret is written here.
+server:
+  port: ${NEXORA_CONSOLE_PORT:8085}
+  # Local only by default, like the other Nexora services (D-13).
+  address: ${NEXORA_CONSOLE_BIND_ADDRESS:127.0.0.1}
+  servlet:
+    session:
+      timeout: ${NEXORA_CONSOLE_SESSION_TIMEOUT:30m}
+      cookie:
+        name: NEXORA_CONSOLE_SESSION
+        http-only: true
+        # true behind HTTPS (required outside the local machine).
+        secure: ${NEXORA_CONSOLE_SECURE_COOKIE:false}
+        # Lax: the session must survive the top-level redirect back from Keycloak.
+        same-site: lax
+  error:
+    include-message: never
+    include-stacktrace: never
+
+spring:
+  application:
+    name: nexora-front-end-bff
+  config:
+    # Docker secrets (/run/secrets/<name>) as properties; the OIDC client secret is the file
+    # nexora_console_client_secret. Optional: outside Docker the folder does not exist.
+    import: "optional:configtree:/run/secrets/"
+  # The OIDC client registration is built in code (OidcSecurityConfig) from nexora.bff.oidc: public issuer for the
+  # browser and the iss check, Keycloak's internal address for the backchannel (docs/12-docker.md).
+
+nexora:
+  bff:
+    semantic-url: ${NEXORA_SEMANTIC_URL:http://127.0.0.1:8080}
+    intelligence-url: ${NEXORA_INTELLIGENCE_URL}
+    oidc:
+      # Exactly the iss of the tokens: KEYCLOAK_PUBLIC_URL/realms/nexora.
+      issuer: ${NEXORA_KEYCLOAK_ISSUER}
+      # Docker: http://keycloak:8180/realms/nexora. Outside Docker, the issuer itself.
+      backchannel-url: ${NEXORA_KEYCLOAK_BACKCHANNEL_URL:${NEXORA_KEYCLOAK_ISSUER}}
+      client-id: ${NEXORA_CONSOLE_CLIENT_ID:nexora-console}
+      discovery-attempts: 30
+      discovery-interval: 2s
+    upstream:
+      connect-timeout: 5s
+      semantic-read-timeout: 30s
+      # A report request runs interpretation, compilation, the report and the file in one call.
+      intelligence-read-timeout: ${NEXORA_CONSOLE_INTELLIGENCE_TIMEOUT:300s}
+      max-request-bytes: 65536
+      max-response-bytes: 4194304
+      max-artifact-bytes: 104857600
+    identity:
+      roles-claim: roles
+      tenant-claim: tenant
+      principal-type-claim: principal_type
+    diagnostics:
+      roles: PLATFORM_ADMIN
+    # D7: the data sources of the console (alias of Intelligence, id in Semantic, tenant). Example in
+    # docs/04-configuracion.md; with SPRING_APPLICATION_JSON or an external application-local.yml.
+    sources: []
+
+logging:
+  level:
+    root: INFO

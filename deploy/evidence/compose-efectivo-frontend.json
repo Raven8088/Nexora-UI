@@ -1,0 +1,99 @@
+{
+  "services": {
+    "frontend": {
+      "profiles": [
+        "frontend"
+      ],
+      "restart": "unless-stopped",
+      "cap_drop": [
+        "ALL"
+      ],
+      "command": null,
+      "entrypoint": null,
+      "environment": {
+        "JAVA_TOOL_OPTIONS": "${JAVA_TOOL_OPTIONS:-} (de .env)",
+        "NEXORA_BFF_SOURCES_0_ALIAS": "primary",
+        "NEXORA_BFF_SOURCES_0_DATASOURCEID": "00000000-0000-4000-8000-000000000001",
+        "NEXORA_BFF_SOURCES_0_LABEL": "primary",
+        "NEXORA_BFF_SOURCES_0_TENANTID": "00000000-0000-4000-8000-0000000000aa",
+        "NEXORA_CONSOLE_CLIENT_ID": "nexora-console",
+        "NEXORA_CONSOLE_SECURE_COOKIE": "false",
+        "NEXORA_INTELLIGENCE_URL": "http://intelligence-edge:8101",
+        "NEXORA_KEYCLOAK_BACKCHANNEL_URL": "http://keycloak:8180/realms/nexora",
+        "NEXORA_KEYCLOAK_ISSUER": "http://host.docker.internal:8180/realms/nexora",
+        "NEXORA_SEMANTIC_URL": "http://semantic:8080"
+      },
+      "image": "nexora/frontend:dev",
+      "logging": {
+        "driver": "json-file",
+        "options": {
+          "max-file": "5",
+          "max-size": "10m"
+        }
+      },
+      "networks": {
+        "nexora": {},
+        "nexora-intelligence-edge": {
+          "ipv4_address": "10.250.1.29"
+        }
+      },
+      "read_only": true,
+      "secrets": [
+        {
+          "source": "nexora_console_client_secret",
+          "target": "/run/secrets/nexora_console_client_secret"
+        }
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "tmpfs": [
+        "/tmp:size=256m"
+      ],
+      "build": {
+        "context": "${NEXORA_FRONTEND_DIR:-../../../Front-end/Nexora-front-end}",
+        "dockerfile": "Dockerfile"
+      },
+      "depends_on": {
+        "intelligence-edge": {
+          "condition": "service_started",
+          "required": false
+        },
+        "keycloak": {
+          "condition": "service_healthy",
+          "required": true
+        },
+        "semantic": {
+          "condition": "service_healthy",
+          "required": true
+        }
+      },
+      "healthcheck": {
+        "test": [
+          "CMD",
+          "bash",
+          "-c",
+          "exec 3<>/dev/tcp/127.0.0.1/8085 && printf 'GET /bff/health HTTP/1.0\\r\\nHost: localhost\\r\\n\\r\\n' >&3 && grep -q '\"UP\"' <&3"
+        ],
+        "timeout": "5s",
+        "interval": "15s",
+        "retries": 10,
+        "start_period": "1m30s"
+      },
+      "ports": [
+        {
+          "mode": "ingress",
+          "host_ip": "127.0.0.1",
+          "target": 8085,
+          "published": "8085",
+          "protocol": "tcp"
+        }
+      ]
+    }
+  },
+  "secrets": {
+    "nexora_console_client_secret": {
+      "file": "./secrets/nexora_console_client_secret"
+    }
+  }
+}

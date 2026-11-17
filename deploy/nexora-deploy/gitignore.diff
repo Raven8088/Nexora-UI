@@ -1,0 +1,9 @@
+--- a/.gitignore (antes)
++++ b/.gitignore (aplicado 2026-11-11)
+@@ -8,3 +8,6 @@
+ # Certificates of each installation (public CA of the enterprise source): never versioned, never private keys.
+ certs/*
+ !certs/README.md
++# Docker secrets of each installation (Stage 7: nexora_console_client_secret): never versioned.
++secrets/*
++!secrets/README.md
