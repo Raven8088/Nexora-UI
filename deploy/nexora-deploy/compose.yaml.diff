@@ -1,0 +1,100 @@
+--- a/compose.yaml (antes)
++++ b/compose.yaml (aplicado 2026-11-11)
+@@ -13,6 +13,8 @@
+ #            docs/INSTALL.md section 19.A) or, as the reference/alternative, on Windows outside Docker
+ #            (scripts/Start-NexoraIntelligence.ps1, section 19.B). Intelligence is on an INTERNAL network; only
+ #            intelligence-edge reaches the host (Ollama) and publishes the report request API on 127.0.0.1.
++#   Stage 7  Nexora Frontend, the web console (profile "frontend": service frontend, published on 127.0.0.1 only;
++#            docs/12-docker.md of the Nexora-front-end repository). Needs the client nexora-console in Keycloak.
+ #
+ # Nothing here is specific to one company: the enterprise source, the inference server and the identity provider are
+ # configuration (.env). Paths are relative to this folder. Secrets only come from ".env".
+@@ -428,6 +430,74 @@
+       # D-13: ONLY on 127.0.0.1 (never NEXORA_BIND_ADDRESS); same port inside and outside.
+       - "127.0.0.1:${INTELLIGENCE_HOST_PORT}:${INTELLIGENCE_HOST_PORT}"
+ 
++  # -------------------------------------------------------------------------------------------------------------------
++  # Stage 7 - Nexora Frontend (web console: React SPA + BFF in one container), profile "frontend".
++  #   docker compose --profile frontend build frontend
++  #   docker compose --profile tenant --profile intelligence --profile frontend up -d frontend
++  # Built from its own repository (NEXORA_FRONTEND_DIR). Browser -> 127.0.0.1:FRONTEND_HOST_PORT only. The BFF keeps
++  # the user's OIDC session (client nexora-console, Authorization Code + PKCE) and calls Semantic and Intelligence
++  # with the USER's token. OIDC: the browser and the iss check use KEYCLOAK_PUBLIC_URL; token, keys and user info go
++  # through the internal address (KC_HOSTNAME_BACKCHANNEL_DYNAMIC, as Semantic and Reports). Networks: "nexora"
++  # (Keycloak, Semantic) and "nexora-intelligence-edge" (the report request API of intelligence-edge, at a FIXED
++  # address so that it can never take the fixed address of intelligence-edge); never "nexora-intelligence".
++  # The client secret is a Docker secret (secrets/nexora_console_client_secret), not an environment variable.
++  # -------------------------------------------------------------------------------------------------------------------
++  frontend:
++    <<: *java-service
++    profiles: [frontend]
++    image: nexora/frontend:${NEXORA_IMAGE_TAG:-dev}
++    build:
++      context: ${NEXORA_FRONTEND_DIR:-../../../Front-end/Nexora-front-end}
++    networks:
++      nexora: {}
++      nexora-intelligence-edge:
++        ipv4_address: ${NEXORA_FRONTEND_EDGE_IP:-10.250.1.29}
++    depends_on:
++      keycloak:
++        condition: service_healthy
++      semantic:
++        condition: service_healthy
++      # Only ordering, when the profile "intelligence" is active: without Intelligence the chat answers "not
++      # available" and the dictionary keeps working.
++      intelligence-edge:
++        condition: service_started
++        required: false
++    secrets:
++      - nexora_console_client_secret
++    environment:
++      NEXORA_KEYCLOAK_ISSUER: ${KEYCLOAK_PUBLIC_URL:?set KEYCLOAK_PUBLIC_URL in .env}/realms/nexora
++      NEXORA_KEYCLOAK_BACKCHANNEL_URL: ${KEYCLOAK_INTERNAL_URL:-http://keycloak:8180}/realms/nexora
++      NEXORA_CONSOLE_CLIENT_ID: nexora-console
++      NEXORA_SEMANTIC_URL: ${SEMANTIC_INTERNAL_URL:-http://semantic:8080}
++      # The published report request API of intelligence-edge, reached on the edge network (same port inside/outside).
++      # The BFF never claims to be local (D-FE-1): until Intelligence accepts this trusted client (proposal in the
++      # Nexora-front-end repository, docs/13), its API answers local_only and the chat says "not available".
++      NEXORA_INTELLIGENCE_URL: http://intelligence-edge:${INTELLIGENCE_HOST_PORT:-8101}
++      # D7: the data source offered by the console = the one configured for Intelligence (stage 4 values). The BFF
++      # does not start without them; Semantic and Intelligence still check tenant and permissions on every call.
++      NEXORA_BFF_SOURCES_0_ALIAS: ${NEXORA_DATA_SOURCE_ALIAS:-}
++      NEXORA_BFF_SOURCES_0_LABEL: ${NEXORA_DATA_SOURCE_LABEL:-${NEXORA_DATA_SOURCE_ALIAS:-}}
++      NEXORA_BFF_SOURCES_0_DATASOURCEID: ${NEXORA_DATA_SOURCE_ID:-}
++      NEXORA_BFF_SOURCES_0_TENANTID: ${NEXORA_TENANT_ID:-}
++      # http on 127.0.0.1: false. true (and HTTPS in front) for any other access.
++      NEXORA_CONSOLE_SECURE_COOKIE: ${NEXORA_CONSOLE_SECURE_COOKIE:-false}
++      JAVA_TOOL_OPTIONS: ${JAVA_TOOL_OPTIONS:-}
++    ports:
++      # Like intelligence-edge (D-13): ONLY on 127.0.0.1, never NEXORA_BIND_ADDRESS.
++      - "127.0.0.1:${FRONTEND_HOST_PORT:-8085}:8085"
++    healthcheck:
++      test:
++        [
++          "CMD",
++          "bash",
++          "-c",
++          "exec 3<>/dev/tcp/127.0.0.1/8085 && printf 'GET /bff/health HTTP/1.0\\r\\nHost: localhost\\r\\n\\r\\n' >&3 && grep -q '\"UP\"' <&3",
++        ]
++      interval: 15s
++      timeout: 5s
++      retries: 10
++      start_period: 90s
++
+ networks:
+   nexora:
+     ipam:
+@@ -456,6 +526,13 @@
+       config:
+         - subnet: ${NEXORA_INTELLIGENCE_EDGE_SUBNET:?set NEXORA_INTELLIGENCE_EDGE_SUBNET in .env}
+ 
++# Stage 7: the client secret of nexora-console, a file of this folder that is never versioned (secrets/README.md),
++# mounted read-only in the frontend container as /run/secrets/nexora_console_client_secret: never in its environment,
++# its image or its logs. ("environment:" secrets are not possible: Compose refuses them in read-only services.)
++secrets:
++  nexora_console_client_secret:
++    file: ./secrets/nexora_console_client_secret
++
+ volumes:
+   # PostgreSQL data (three databases, including Keycloak's). Removing it deletes ALL Nexora data (docs/RECOVERY.md).
+   pg-data:
