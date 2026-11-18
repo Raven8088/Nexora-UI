@@ -122,6 +122,6 @@ nuevo (KI-R1, KI-R2, fuente) y decide siempre sobre el catálogo actual.
    máximo 5 relaciones de la lista cerrada; siempre inferencias). Mismos problemas que F1; 404 si F2 no está activado.
 2. `POST …/concept-proposals` `{match}` → `status` (`CANDIDATES`, `ALREADY_KNOWN`, `NOT_FOUND`, `NOT_UNDERSTOOD`),
    `named` (conceptos que las palabras nombran), `candidates` (`relationId`, `proposalId`, `known`, `inferred`,
-   `verified`, `technicalName` solo para quien puede aprobar), `omitted`, `notices`.
+   `verified`, `technicalName` solo para una persona que puede aprobar o gestiona la fuente, D-F2-4-bis), `omitted`, `notices`.
 3. `POST …/concept-proposals/confirm` `{match, relationId, proposal, name, description, acknowledgedInference,
    acknowledgedNotKnown}` → 201 `{suggestion, definition, created}`; siempre `DRAFT`.

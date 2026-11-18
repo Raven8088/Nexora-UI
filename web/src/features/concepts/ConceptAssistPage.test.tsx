@@ -175,7 +175,7 @@ describe('F2: Enseñar un concepto nuevo', () => {
     await waitFor(() => expect(again.find((c) => c.path === 'confirm')?.body).toMatchObject({ acknowledgedNotKnown: true }));
   });
 
-  it('explains when nothing corresponds, when the function is off and gives the technical detail only to approvers', async () => {
+  it('explains when nothing corresponds, when the function is off and gives the technical detail only when Semantic sends it', async () => {
     serve([{ ...candidates, status: 'NOT_FOUND', candidates: [] }]);
     renderConsole('/diccionario/nuevo-concepto');
     const user = userEvent.setup();

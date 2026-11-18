@@ -35,7 +35,8 @@ planta») y pulsa **Buscar**:
 - Si ya conoce algo con ese nombre, te lo muestra; marca «No es esto» si te refieres a otra cosa.
 - Si no, te enseña hasta 5 **opciones** entre los datos habilitados de la fuente. Cada una separa lo **Comprobado** (por
   ejemplo, «Cada «Sensor» apunta a uno de estos», «Datos habilitados: 2 números, 1 texto») de la **Suposición** de
-  Nexora. Quien puede aprobar ve además, plegado, el nombre técnico.
+  Nexora. Quien puede aprobar o gestiona la fuente (STEWARD, junto con un rol que pueda proponer) ve además, plegado, el
+  nombre técnico (D-F2-4-bis).
 - Elige una opción (o **Ninguna de estas**: no se crea nada), revisa el nombre y la descripción propuestos y confirma
   que la opción corresponde a tus palabras. Se guarda como **borrador**; una persona autorizada lo aprueba después.
 

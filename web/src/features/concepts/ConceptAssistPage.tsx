@@ -55,7 +55,8 @@ export function factLines(t: T, verified: VerifiedFact[]): string[] {
  * Nexora (Intelligence) relates the words to the exposed tables of the source, Semantic says what is already known and
  * gives the candidates with what is verified apart from what is inferred, and the person chooses one (or none), reviews
  * the name and the description and confirms. It is saved as a DRAFT concept; approval stays a separate human operation.
- * No table, column or key is shown here (the folded detail for specialists is the only exception, for approvers).
+ * No table, column or key is shown here. The folded detail for specialists is the only exception: Semantic sends it
+ * only to a person who approves or manages the source (F2-FIX1, D-F2-4-bis).
  */
 export function ConceptAssistPage() {
   const { t } = useTranslation();

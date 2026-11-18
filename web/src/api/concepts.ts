@@ -8,7 +8,8 @@ import { json } from './http';
  *    5 tables or views of a closed list of exposed data and answers `nexora-concept-match/1` (ids and the person's own
  *    words; every relation is an inference; nothing is created).
  * 2. `POST …/concept-proposals` → Semantic says what Nexora already knows and gives the candidates with their verified
- *    facts apart from inferences (reads only; no physical name unless the folded detail for an approver).
+ *    facts apart from inferences (reads only; no physical name unless the folded detail, which Semantic sends only to a
+ *    person who approves or manages the source, F2-FIX1 D-F2-4-bis).
  * 3. `POST …/concept-proposals/confirm` → Semantic saves the chosen candidate as a DRAFT concept (never approved).
  */
 
